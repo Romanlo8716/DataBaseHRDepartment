@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+
+.header{
+height: 60px;
+background-color: green;
+}
+
+.logo{
+ overflow: hidden;
+   text-align: center;
+ 
+}
+
+.middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+   height: 400px;
+ 
+}
+
+.WindowPass{
+
+
+    background-color: bisque;
+    width: 500px;
+    height: 250px;
+   line-height: 30px
+}
+
+.reg{
+    color: black;
+}
+
+.footer{
+    height: 300px;
+    background-color: blue;
+}
