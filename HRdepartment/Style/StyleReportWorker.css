@@ -74,192 +74,51 @@ html, body {
 .middle{
     width: 100%;
     
-
+text-align: center;
     top: 0;
     left: 0;
     overflow: auto;
 }
 
-.logo_worker{
-    margin-top: 2%;
-    margin-left: 35%;
+.logo_med{
+    margin-top: 30px;
 }
 
-.passport_block{
-    width: 700px;
-    height: 300px;
-    margin-left: 25%;
-margin-top: 3%;
-background-color: white;
+.block-worker{
+    width: 600px;
+    height: 130px;
+    background-color: white;
     border-radius: 10px;
+    margin-top: 20px;
     border: 1px solid rgb(200, 200, 200);
+    padding: 20px;
+   margin-left: 400px;
+ 
 }
 
-.photo_block{
-    width: 150px;
-    height: 160px;
+.image-worker{
+    margin-top: -5px;
+    width: 140px;
+    height: 140px;
+    background-color: rgb(242, 244, 247);
+    position: absolute;
+    border-radius: 10px;
     text-align: center;
-    border-radius: 10px;
     border: 1px solid rgb(200, 200, 200);
-    margin-top: 5%;
-    margin-left: 5%;
+    
 }
-
 
 .photo_worker{
-    width: 145px;
-    height: 155px;
-    margin-top: 2%;
-}
-
-.fio_block{
-    position: absolute;
-  margin-left: 14%;
-  margin-top: -11%;
-}
-
-.pass_info{
-    position: absolute;
-    
-}
-
-.adress_block{
-    margin-left: 5%;
-}
-
-.logo_worker2{
-    text-align: center;
-    margin-top: 2%;
-}
-
-.med_block{
-    text-align: center;
-    height: 300px;
-    width: 200px;
-    background-color: white;
-    margin-left: 25%;
-    margin-top: 2%;
-    border: 1px solid rgb(200, 200, 200);
+    width: 140px;
+    height: 140px;
     border-radius: 10px;
 }
-
-.med_block:hover{
-    background-color:  rgb(242, 244, 247);
-}
-
-
-
-.military_block{
-    height: 300px;
-    width: 200px;
-    text-align: center;
-    background-color: white;
-    margin-left: 42%;
-    margin-top: -20.4%;
-    border: 1px solid rgb(200, 200, 200);
-    border-radius: 10px;
-}
-
-.military_block:hover{
-    background-color:  rgb(242, 244, 247);
-}
-
-.work_block{
-    text-align: center;
-    height: 300px;
-    width: 200px;
-    background-color: white;
-    margin-left: 59%;
-    margin-top: -20.4%;
-    border: 1px solid rgb(200, 200, 200);
-    border-radius: 10px;
-}
-
-.work_block:hover{
-    background-color:  rgb(242, 244, 247);
-}
-
-.education_block{
-    text-align: center;
-    height: 300px;
-    width: 200px;
-    background-color: white;
-    margin-left: 25%;
-    margin-top: 2%;
-    border: 1px solid rgb(200, 200, 200);
-    border-radius: 10px;
-}
-
-.education_block:hover{
-    background-color:  rgb(242, 244, 247);
-}
-
-.family_block{
-    text-align: center;
-    height: 300px;
-    width: 200px;
-    background-color: white;
-    margin-left: 42%;
-    margin-top: 2%;
-    border: 1px solid rgb(200, 200, 200);
-    border-radius: 10px;
-    margin-top: -20.4%;
-}
-
-.family_block:hover{
-    background-color:  rgb(242, 244, 247);
-}
-
-.stats_block{
-    text-align: center;
-    height: 300px;
-    width: 200px;
-    background-color: white;
-    margin-left: 59%;
-    margin-top: -20.4%;
-    border: 1px solid rgb(200, 200, 200);
-    border-radius: 10px;
-}
-
-.stats_block:hover{
-    background-color:  rgb(242, 244, 247);
-}
-
-.desc_block{
-   margin-top: 4%;
-    font-size: 18px;
-
-    height: 160px;
-}
-
-.img_block{
-    
-
-    height: 130px;
-}
-
-.img_report{
-    height: 50px;
-    width: 50px;
-    margin-top: 70px;
-}
-
-.report_item{
-color: black;
-height: 300px;
-width: 200px;
-
-}
-
-.report_item:hover{
-    background-color:  rgb(242, 244, 247);
-}
-
 
 
 /*Футер*/
 
 .footer{
+    margin-top: 50px;
     height: 9.88cm;
     background-color: rgb(90, 90, 90);
      }

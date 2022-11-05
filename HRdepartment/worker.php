@@ -36,7 +36,7 @@ while($resultWorker =  mysqli_fetch_array( $workerCon)){
                 <a href="index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
                 <a href="workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
                 <a href="departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
-                <a href="reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
+                <a href="Reports/reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
                    
 </nav>
 </div>
@@ -72,59 +72,80 @@ while($resultWorker =  mysqli_fetch_array( $workerCon)){
 
 
 <div class="med_block">
+<a href="Reports/medReportWorker.php?id=<?=$id?>" class="report_item" style="text-decoration: none">
 <div class="img_block">
 <img class="img_report" src="image/med.png" alt="">
 </div>
   <div class="desc_block">
 Медицинские данные сотрудника
   </div>
+  </a>
 </div>
 
+
+
 <div class="military_block">
+<a href="Reports/militaryReportWorker.php?id=<?=$id?>" class="report_item" style="text-decoration: none">
 <div class="img_block">
 <img class="img_report" src="image/military.png" alt="">
 </div>
   <div class="desc_block">
 Военная книга
 </div>
+</a> 
 </div>
 
+
+
 <div class="work_block">
+<a href="Reports/workReportWorker.php?id=<?=$id?>" class="report_item" style="text-decoration: none">
 <div class="img_block">
-<img class="img_report" src="image/work.jpg" alt="">
+<img class="img_report" src="image/work.png" alt="">
 </div>
   <div class="desc_block">
 Трудовая книга
 </div>
+</a> 
 </div>
 
+
+
 <div class="education_block">
+<a href="Reports/educationReportWorker.php?id=<?=$id?>" class="report_item" style="text-decoration: none">
 <div class="img_block">
 <img class="img_report" src="image/education.png" alt="">
 </div>
   <div class="desc_block">
 Информация об образовании
 </div>
+</a> 
 </div>
 
+
+
 <div class="family_block">
+<a href="Reports/familyReportWorker.php?id=<?=$id?>" class="report_item" style="text-decoration: none">
 <div class="img_block">
 <img class="img_report" src="image/family.png" alt="">
 </div>
   <div class="desc_block">
 Семейные данные
 </div>
+</a> 
 </div>
 
+
+
 <div class="stats_block">
+<a href="Reports/statsReportWorker.php?id=<?=$id?>" class="report_item" style="text-decoration: none">
 <div class="img_block">
 <img class="img_report" src="image/stats.png" alt="">
 </div>
   <div class="desc_block">
 Информация о состоянии сотрудника
 </div>
+</a> 
 </div>
-
 
 
 </div>
