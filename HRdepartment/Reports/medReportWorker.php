@@ -1,10 +1,17 @@
 <?php
+function convertWordWrap(string $text){
+ $consul = wordwrap($text, 90, "\n \n", 1);
+ $consul = htmlentities($consul);
+ $consul = nl2br($consul);
+ return $consul;
+}
 include '../Connect/connect.php';
 $id = $_GET["id"];
 
 if(isset($id)){
     $workerCon = mysqli_query($link, "select * from `people_table` where id='$id'");
     $medCon = mysqli_query($link, "select * from medical_book join people_table on medical_book.employees_code = people_table.id where medical_book.employees_code ='$id'");
+    $medConLast = mysqli_query($link, "select * from medical_book join people_table on medical_book.employees_code = people_table.id where medical_book.employees_code ='$id' order by record_id desc limit 1");
     }
 ?>
 
@@ -43,25 +50,46 @@ if(isset($id)){
 </div>
 
 <div class="middle">
+<h1 class="logo_med">Личная карточка сотрудника </h1>
 
-<h1 class="logo_med">История прохождения медицинских обследований</h1>
+<div class="person_block">
 
 <?php while($workers = mysqli_fetch_array( $workerCon)){
     $show_img = base64_encode($workers['image']);?>
  <div class="image-worker"><?php if($workers["image"]== null){ echo"<br><br><br>No photo"; } else{?> <img class="photo_worker" src="data:image/jpeg;base64,<?=$show_img?>" alt=""> <?php }?></div>
-    <?php } ?>
+ <div class="fio_block">
+<h3>Фамилия:__________<span class="pass_info" style="font-weight: normal"><?=$workers['surname']?></span>_____________________________</h3><br>
+<h3>Имя:_______________<span class="pass_info" style="font-weight: normal"><?=$workers['name']?></span>____________________________</h3><br>
+<h3>Отчество:__________<span class="pass_info" style="font-weight: normal"><?=$workers['middlename']?></span>_____________________________<br></h3><br>
+</div>
+<?php } ?>
+<div class="lastMed">
+    
+<?php while($resultMedLast = mysqli_fetch_array( $medConLast)){
+ 
+?>
+    <h3>Последняя дата осмотра:__________<span class="pass_infoLast" style="font-weight: normal;"><?=$resultMedLast['date_examination']?></span>_____________________________</h3><br>
+    <h3>Заключение:____<span class="pass_infoLast" style="font-weight: normal;"><?=convertWordWrap($resultMedLast['conclusion'])?></span>______________________________________________<br><br>______________________________________________________________</h3><br>
+<?php } ?>
+</div>
+    
 
+</div>
+
+<h1 class="logo_med">История прохождения медицинских обследований</h1>
+
+<div class="medData_block">
 <?php while($resultMed = mysqli_fetch_array( $medCon)){?>
 
     
          <div class="block-worker" >
-            <div class="hospital"> <?=$resultMed['place_of_examination']?></div>
-           <div class="date_examination"> <?=$resultMed['date_examination']?> </div><br> 
-           <div class="conclusion"> <?=$resultMed['conclusion']?> </div><br> 
+            <h4>Место прохождения: _____________<span class="med_info" style="font-weight: normal"> <?=$resultMed['place_of_examination']?></span>______________________________________</h4><br>
+            <h4>Дата прохождения: _____________<span class="med_info" style="font-weight: normal"> <?=$resultMed['date_examination']?></span>_______________________________________</h4><br>
+            <h4>Заключение: _____<span class="med_info" style="font-weight: normal"> <?=convertWordWrap($resultMed['conclusion'])?></span>_____________________________________________________<br><br>______________________________________________________________________</h4><br>
         </div>
       
          <?php } ?>
-
+</div>
 
 
 
