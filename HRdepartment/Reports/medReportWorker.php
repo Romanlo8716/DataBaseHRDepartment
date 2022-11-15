@@ -1,16 +1,11 @@
 <?php
-function convertWordWrap(string $text){
- $consul = wordwrap($text, 90, "\n \n", 1);
- $consul = htmlentities($consul);
- $consul = nl2br($consul);
- return $consul;
-}
+
 include '../Connect/connect.php';
 $id = $_GET["id"];
 
 if(isset($id)){
     $workerCon = mysqli_query($link, "select * from `people_table` where id='$id'");
-    $medCon = mysqli_query($link, "select * from medical_book join people_table on medical_book.employees_code = people_table.id where medical_book.employees_code ='$id'");
+    $medCon = mysqli_query($link, "select * from medical_book join people_table on medical_book.employees_code = people_table.id where medical_book.employees_code ='$id' order by record_id desc");
     $medConLast = mysqli_query($link, "select * from medical_book join people_table on medical_book.employees_code = people_table.id where medical_book.employees_code ='$id' order by record_id desc limit 1");
     }
 ?>

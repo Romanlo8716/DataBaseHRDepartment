@@ -64,7 +64,7 @@ while($resultWorker =  mysqli_fetch_array( $workerCon)){
 <h3>Серия паспорта:_<span class="pass_info" style="font-weight: normal"><?=$resultWorker['passport_series']?></span>_____ Номер паспорта:__<span class="pass_info" style="font-weight: normal"><?=$resultWorker['passport_number']?></span>_________</h3><br>
 </div>
 <br>
-<h3 class="adress_block">Место рождения:____<span class="pass_info" style="font-weight: normal"><?=$resultWorker['city']?> &nbsp; &nbsp; &nbsp;<?=$resultWorker['region']?></span>_______________________________________________ </h3>
+<h3 class="adress_block">Место прописки:____<span class="pass_info" style="font-weight: normal">обл. <?=$resultWorker['region']?> &nbsp; &nbsp; &nbsp;г. <?=$resultWorker['city']?>  </span>_______________________________________________ <br><br>__________________<span class="pass_info" style="font-weight: normal">ул. <?=$resultWorker['street']?> д. <?=$resultWorker['house']?> кв. <?=$resultWorker['apartment_number']?></span>_________________________________________________ </h3>
 
 <br><h3 class="adress_block" >Должность:____<span class="pass_info" style="font-weight: normal"><?php while($resultPost =  mysqli_fetch_array( $postCon)){ $post = $resultPost['title']; echo "$post | "; }?></span>____________________________________________________</h3>
 </div>
@@ -90,7 +90,7 @@ while($resultWorker =  mysqli_fetch_array( $workerCon)){
 <img class="img_report" src="image/military.png" alt="">
 </div>
   <div class="desc_block">
-Военная книга
+Военный билет
 </div>
 </a> 
 </div>

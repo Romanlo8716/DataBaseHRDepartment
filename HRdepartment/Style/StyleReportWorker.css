@@ -74,7 +74,7 @@ html, body {
 .middle{
     width: 100%;
     
-
+   
     top: 0;
     left: 0;
    
@@ -149,6 +149,8 @@ word-wrap: normal;
     border-radius: 10px;
     border: 1px solid rgb(200, 200, 200);
 }
+
+
 
 .medData_block{
     margin-top: 50px;

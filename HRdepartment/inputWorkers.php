@@ -32,7 +32,13 @@ if (isset($_POST['searchName']) ) {
 
     while($workers = mysqli_fetch_array($ExecQuery))
     {
+        $id = $workers["id"];
         $show_img = base64_encode($workers['image']);
+        $departmentCon = mysqli_query($link, "select title from department JOIN departments_of_the_employee ON departments_of_the_employee.department_id=department.number_department where departments_of_the_employee.employee_id = '$id'");
+        $vacationCon = mysqli_query($link, "select * from vacation_order where employees_report_card = '$id' order by order_number_vacation desc limit 1");
+
+        $dateNow = date("Y-m-d");
+
     
         ?>
          <a href="worker.php?id=<?=$workers["id"]?>"  style="text-decoration: none">
@@ -40,8 +46,21 @@ if (isset($_POST['searchName']) ) {
          <div class="block-worker" >
             <div class="image-worker"><?php if($workers["image"]== null){ echo"<br><br><br>No photo"; } else{?> <img class="photo_worker" src="data:image/jpeg;base64,<?=$show_img?>" alt=""> <?php }?></div>
            <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["name"]?> <?=$workers["surname"]?> <?=$workers["middlename"]?> </div><br> 
-       
-           <div class="type-desc"><h3>Состояние</h3> <?=$workers["type"]?></div>
+           <?php  while($departmentWorkers = mysqli_fetch_array($departmentCon)){ ?>
+           
+           <div class="type-desc"><h3>Отдел</h3> <?=$departmentWorkers['title']?></div><br>
+           <?php
+             }
+            ?>
+
+           <?php  while($vacationWorkers = mysqli_fetch_array($vacationCon)){ 
+                   $dateEnd = $vacationWorkers['vacation_end_date'];
+               ?>
+          
+          <div class="type-desc"><h3>Состояние</h3> <? if ($dateEnd > $dateNow) echo $vacationWorkers['type_of_vacation']; else echo "Работает";?></div><br>
+          <?php
+            }
+           ?>
         </div>
          </a>
          <?php
