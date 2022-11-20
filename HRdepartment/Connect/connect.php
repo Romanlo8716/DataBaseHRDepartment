@@ -7,8 +7,8 @@ if($link== False){
 }
 else{
 
-$connection = mysqli_query($link, "select * from `people_table`");
-
+$connectionWorkers = mysqli_query($link, "select * from `people_table`");
+$connectionDepartments = mysqli_query($link, "select * from `department`");
 
 }
 
@@ -18,4 +18,11 @@ function convertWordWrap(string $text){
     $consul = nl2br($consul);
     return $consul;
    }
+
+function numberEmployeesForDepartment($query){
+    
+    $row = mysqli_fetch_assoc($query);
+    $count = $row['count'];
+    return $count;
+}
 ?>

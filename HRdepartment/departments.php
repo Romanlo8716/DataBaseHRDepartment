@@ -1,3 +1,8 @@
+<?php
+include 'Connect/connect.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Отделы</title>
-    <link rel="stylesheet" href="/Style/StyleDepartment.css"/>
+    <link rel="stylesheet" href="/Style/StyleDepartments.css"/>
 </head>
 <body>
     
@@ -36,6 +41,34 @@
 
 <h1 class="logo_department"> Все отделы компании </h1>
 
+<div class="block-departments">
+<?php
+
+    while($departments = mysqli_fetch_array($connectionDepartments)) { 
+      $id = $departments["number_department"];
+      $numberDepartment = mysqli_query($link, "select count(*) as `count` from departments_of_the_employee where department_id = '$id'");
+      $adressDepartmentCon = mysqli_query($link, "select * from department join department_adress on department.adress_id = department_adress.adress_id where department.number_department = '$id'");
+      ?>
+    
+       
+
+         <a href="department.php?id=<?=$departments["number_department"]?>"  style="text-decoration: none">
+         
+         <div class="block-department">
+          <h4 class="name_department">Название отдела: <span style="font-weight: normal;"><?=$departments["title"]?></span> </h4><br>
+          <h3 class="about_department">Количество сотрудников: <span style="font-weight: normal;"><?=numberEmployeesForDepartment($numberDepartment)?></span>  </h3><br>
+          <?php while($adressDepartment = mysqli_fetch_array($adressDepartmentCon)) { ?>
+          <h4 class="about_department">Адрес отдела: <span style="font-weight: normal;">Город: <?=$adressDepartment["city"]?>,</span> <span style="font-weight: normal;">Улица: <?=$adressDepartment["street"]?>,</span> <span style="font-weight: normal;"> Дом: <?=$adressDepartment["house"]?>.</span> </h4><br>
+          <?php } ?>
+          <h3 class="about_department">Рабочий телефон: <span style="font-weight: normal;"><?=$departments["telephone"]?></span></h3>
+        </div>
+         </a>
+         
+    
+    <?php } ?>
+  
+
+</div>
 
 </middle>
 

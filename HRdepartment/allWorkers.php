@@ -16,7 +16,7 @@ include 'Connect/connect.php';
 <?php
 
 
-    while($workers = mysqli_fetch_array($connection))
+    while($workers = mysqli_fetch_array($connectionWorkers))
     {
         $show_img = base64_encode($workers['image']);
     

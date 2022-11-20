@@ -65,7 +65,7 @@ include 'Connect/connect.php';
 <div class="block-workers" id="display">
 <?php
 
-    while($workers = mysqli_fetch_array($connection))
+    while($workers = mysqli_fetch_array($connectionWorkers))
     {
         $id = $workers["id"];
         $show_img = base64_encode($workers['image']);
@@ -82,12 +82,10 @@ include 'Connect/connect.php';
             <div class="image-worker"><?php if($workers["image"]== null){ echo"<br><br><br>No photo"; } else{?> <img class="photo_worker" src="data:image/jpeg;base64,<?=$show_img?>" alt=""> <?php }?></div>
            <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["name"]?> <?=$workers["surname"]?> <?=$workers["middlename"]?> </div><br> 
            
-           <?php  while($departmentWorkers = mysqli_fetch_array($departmentCon)){ ?>
+          
            
-            <div class="type-desc"><h3>Отдел</h3> <?=$departmentWorkers['title']?></div><br>
-            <?php
-              }
-             ?>
+            <div class="type-desc"><h3>Отдел</h3><?php while($departmentWorkers =  mysqli_fetch_array( $departmentCon)){ $department = $departmentWorkers['title']; echo "$department | "; }?> </div><br>
+         
 
             <?php  while($vacationWorkers = mysqli_fetch_array($vacationCon)){ 
                     $dateEnd = $vacationWorkers['vacation_end_date'];
