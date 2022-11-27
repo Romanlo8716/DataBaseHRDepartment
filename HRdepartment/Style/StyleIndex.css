@@ -16,6 +16,11 @@ html, body {
    
 }
 
+.logo{
+    text-align: center;
+    margin-top: 20px;
+}
+
 .logo-block{
    
     margin-top: 5px;

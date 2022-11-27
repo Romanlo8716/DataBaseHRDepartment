@@ -1,5 +1,5 @@
-<?php
-include 'Connect/connect.php';
+<?php 
+include '../Connect/connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,11 +8,10 @@ include 'Connect/connect.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация</title>
-    <link rel="stylesheet" href="/Style/StyleRegistration.css"/>
+    <title>Редактирование данных</title>
+    <link rel="stylesheet" href="/Style/StyleAdminWorkers.css"/>
 </head>
 <body>
-
 <div class="header">
 <div class="logo-block">
     HR<br>
@@ -22,10 +21,10 @@ include 'Connect/connect.php';
 
 <div class="menu-block">
 <nav class="menu" >
-                <a href="index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
-                <a href="workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
-                <a href="departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
-                <a href="Reports/reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
+                <a href="../index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
+                <a href="../workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
+                <a href="../departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
+                <a href="../Reports/reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
                    
 </nav>
 </div>
@@ -38,32 +37,54 @@ include 'Connect/connect.php';
     <?php }?>
 </div>
 
+
 </div>
 
 <middle>
-  
-<h1 class="logo_reg"> Регистрация пользователя</h1>
 
-<div class="WindowPass">
-        <br>
-        <div class="textWindow">
-<form action="save_user.php" method="POST">
-    
-<p>Введите логин: &nbsp <input type="text" name="login"/><p><br>
-Введите имя: &nbsp <input type="text" name="name"/><p><br>
-Введите пароль: <input type="password" name="password"><p><br>
-<input class="button" type="submit" value="Регистрация">
+<h1 style="text-align: center; margin-top: 40px">Изменение данных</h1>
+<h2 style="text-align: center; margin-top: 40px"> Для сотрудников </h2>
+<div class="managment_employee">
+
+<a href="deleteAdminWorkers.php"  style="text-decoration: none">
+<div class="upgrade_employee"><h3 style="margin-top: 100px"> Удаление сотрудников</h3> </div>
+</a>
+   
+
+<a href="addAdminWorkers.php"  style="text-decoration: none">
+<div class="upgrade_employee"><h3 style="margin-top: 100px"> Добавление сотрудников</h3> </div>
+</a>
+
+<a href="updateAdminWorkers.php"  style="text-decoration: none">
+<div class="upgrade_employee"><h3 style="margin-top: 100px"> Изменение сотрудников</h3> </div>
+</a>
 
 
-
-</form>
-
-
-
-<br>
-Уже зарегистрированы?(<a class="reg" href="enterAdmin.php">Войти</a>)
 </div>
-    </div>
+
+<h2 style="text-align: center; margin-top: 40px" > Для отделов </h2>
+
+<div class="managment_department">
+
+<a href="deleteAdminDepartments.php"  style="text-decoration: none">
+<div class="upgrade_employee"><h3 style="margin-top: 100px"> Удаление отделов</h3> </div>
+</a>
+   
+
+<a href="addAdminDepartments.php"  style="text-decoration: none">
+<div class="upgrade_employee"><h3 style="margin-top: 100px"> Добавление отделов</h3> </div>
+</a>
+
+<a href="updateAdminDepartments.php"  style="text-decoration: none">
+<div class="upgrade_employee"><h3 style="margin-top: 100px"> Изменение отделов</h3> </div>
+</a>
+
+</div>
+
+
+
+
+
 </middle>
 
 <footer class="footer">
@@ -102,7 +123,5 @@ include 'Connect/connect.php';
       </div>
     </div>
 </footer>
-
-
 </body>
 </html>
