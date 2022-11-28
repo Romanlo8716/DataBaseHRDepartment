@@ -75,7 +75,7 @@ include 'Connect/connect.php';
         $show_img = base64_encode($workers['image']);
         $departmentCon = mysqli_query($link, "select title from department JOIN departments_of_the_employee ON departments_of_the_employee.department_id=department.number_department where departments_of_the_employee.employee_id = '$id'");
         $vacationCon = mysqli_query($link, "select * from vacation_order where employees_report_card = '$id' order by order_number_vacation desc limit 1");
-        $releaseCon = mysqli_query($link, "select * from release_order where employees_report_card = '$id' order by order_number desc limit 1");
+     
         $dateNow = date("Y-m-d");
 
     
@@ -96,7 +96,7 @@ include 'Connect/connect.php';
                    
                 ?>
            
-           <div class="type-desc"><h3>Состояние</h3> <?if ($dateEnd > $dateNow) echo $vacationWorkers['type_of_vacation']; else echo "Работает"; ?></div><br>
+           <div class="type-desc"><h3>Состояние</h3> <?if($workers['dismiss']==0){if ($dateEnd > $dateNow){ echo $vacationWorkers['type_of_vacation'];} else {echo "Работает";}} else{?> <div style="color:red;">Уволен </div> <?php } ?></div><br>
            <?php
              }
             ?>

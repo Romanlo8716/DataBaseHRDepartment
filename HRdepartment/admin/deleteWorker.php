@@ -10,8 +10,10 @@ if(!empty($result)){?>
     <?php
 }
 else 
-{
-    echo "Ошибка удаления пользователя";
+{?>
+    <h1 style="text-align:center; margin-top: 80px">Ошибка удаления пользователя</h1>
+ 
+ <?php
 }
 
 ?>

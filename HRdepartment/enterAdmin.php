@@ -37,7 +37,7 @@
 </div>
 
 <div class="middle">
-    <h1 style="logo">Вход</h1>
+    <h1 class="logo">Вход</h1>
 
     <div class="WindowPass">
         <br>

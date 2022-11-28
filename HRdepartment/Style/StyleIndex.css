@@ -1,6 +1,6 @@
 html, body {
     height: 100%;
-    
+    background-color: rgb(242, 244, 247);
   
   }
 *{
@@ -16,10 +16,7 @@ html, body {
    
 }
 
-.logo{
-    text-align: center;
-    margin-top: 20px;
-}
+
 
 .logo-block{
    
@@ -80,6 +77,12 @@ html, body {
     
 
 }
+
+.logo{
+    position: relative;
+     text-align: center;
+     margin-top: 20px;
+ }
 
 .WindowPass{
     position: absolute;
