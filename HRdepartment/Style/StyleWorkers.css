@@ -132,6 +132,15 @@ div.field {
     margin-left: 400px;
 }
 
+.block-workersDelete{
+  
+    background-color:  rgb(242, 244, 247);
+    left: 50%;
+    width: 600px;
+    
+    margin-top: 50px;
+    margin-left: 400px;
+}
 
 
 .block-worker{

@@ -95,7 +95,22 @@ background-color:  rgb(242, 244, 247);
     
     }
 
+.button{
+    display: inline-block; 
+    height: 40px; 
+    width: 110px;  
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgb(200, 200, 200);
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    color: black;
+}
 
+.button:hover{
+    background-color:  rgb(242, 244, 247);
+}
 
 .upgrade_employee{
     height: 300px;
