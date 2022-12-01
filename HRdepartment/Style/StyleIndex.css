@@ -81,12 +81,12 @@ html, body {
 .logo{
     position: relative;
      text-align: center;
-     margin-top: 20px;
+     margin-top: 100px;
  }
 
 .WindowPass{
     position: absolute;
-    margin-top: 200px;
+    margin-top: 100px;
    margin-left: 500px;
     background-color: white;
     width: 500px;
@@ -98,7 +98,7 @@ html, body {
 
 .textWindow{
     text-align: center;
-    
+  
 }
 
 .button{

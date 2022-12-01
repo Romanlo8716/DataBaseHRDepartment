@@ -52,7 +52,11 @@ include '../Connect/connect.php';
     while($workers = mysqli_fetch_array($connectionWorkers))
     {
         $id = $workers["id"];
+
+        if($workers['image'] != null){
         $show_img = base64_encode($workers['image']);
+        }
+        
         $departmentCon = mysqli_query($link, "select title from department JOIN departments_of_the_employee ON departments_of_the_employee.department_id=department.number_department where departments_of_the_employee.employee_id = '$id'");
         $vacationCon = mysqli_query($link, "select * from vacation_order where employees_report_card = '$id' order by order_number_vacation desc limit 1");
        
