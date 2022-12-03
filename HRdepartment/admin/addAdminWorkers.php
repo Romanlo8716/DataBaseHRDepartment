@@ -9,7 +9,7 @@ $allPost =  mysqli_query($link, "select * from post");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отделы</title>
+    <title>Добавление сотрудников</title>
     <link rel="stylesheet" href="/Style/StyleAddAdminWorkers.css"/>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="live_search.js"></script>
@@ -98,7 +98,7 @@ function uploadFile(target) {
 
 
 </middle>
-
+<br><br><br><br>
 <footer class="footer">
 
     <div class="block3"></div>
@@ -110,13 +110,13 @@ function uploadFile(target) {
         <div class="updates_name">Работа с программой:</div>
         <div class="desc_updates">
             <br><br> В случае сбоев работы с программой<br>
-            обращайтесь к администратору
+            обращайтесь к системному администратору
         </div>
         <nav class="menu_updates" >
-            <a href="suggestions.html" class="menu_updates_item" style="text-decoration: none">Наши предложения</a>
-            <a href="news.html" class="menu_updates_item" style="text-decoration: none">Новости</a>
-            <a href="#images" class="menu_updates_item" style="text-decoration: none">Фотогалерея</a>
-            <a href="#contacts" class="menu_updates_item" style="text-decoration: none">Контакты</a>     
+            <a href="../index.php" class="menu_updates_item" style="text-decoration: none">Главная страница</a>
+            <a href="../workers.php" class="menu_updates_item" style="text-decoration: none">Сотрудники</a>
+            <a href="../departments.php" class="menu_updates_item" style="text-decoration: none">Отделы</a>
+            <a href="../Reports/reports.php" class="menu_updates_item" style="text-decoration: none">Отчеты</a>     
         </nav>
    
       </div>

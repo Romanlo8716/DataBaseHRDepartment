@@ -84,7 +84,7 @@ if(isset($id)){
          <?php } ?>
 </div>
 </middle>
-
+<br><br><br><br>
 <footer class="footer">
 
     <div class="block3"></div>
@@ -96,13 +96,13 @@ if(isset($id)){
         <div class="updates_name">Работа с программой:</div>
         <div class="desc_updates">
             <br><br> В случае сбоев работы с программой<br>
-            обращайтесь к администратору
+            обращайтесь к системному администратору
         </div>
         <nav class="menu_updates" >
-            <a href="suggestions.html" class="menu_updates_item" style="text-decoration: none">Наши предложения</a>
-            <a href="news.html" class="menu_updates_item" style="text-decoration: none">Новости</a>
-            <a href="#images" class="menu_updates_item" style="text-decoration: none">Фотогалерея</a>
-            <a href="#contacts" class="menu_updates_item" style="text-decoration: none">Контакты</a>     
+            <a href="../index.php" class="menu_updates_item" style="text-decoration: none">Главная страница</a>
+            <a href="../workers.php" class="menu_updates_item" style="text-decoration: none">Сотрудники</a>
+            <a href="../departments.php" class="menu_updates_item" style="text-decoration: none">Отделы</a>
+            <a href="../Reports/reports.php" class="menu_updates_item" style="text-decoration: none">Отчеты</a>     
         </nav>
    
       </div>

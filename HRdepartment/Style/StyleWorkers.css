@@ -201,13 +201,93 @@ div.field {
 
 /*Футер*/
 
-.foother{
-    margin-top: 220px;
-    background-color: rgb(120, 120, 120);
-
-    height: 100px;
-    width: 100%;
-    position: relative;
-
-}
-
+.footer{
+    height: 9cm;
+    background-color: rgb(90, 90, 90);
+     }
+    
+     .block3{
+         height: 0.53cm;
+         background-color: rgb(70, 70, 70);
+     }
+    
+      /*block_updates*/
+    
+     .updates{
+         height: 8cm;
+    
+         background-color: rgb(90, 90, 90);
+         margin-left: 8cm;
+     }
+    
+     .updates_name{
+         margin-top: 1cm;
+         position: absolute;
+         font-size: 30px;
+         color: rgb(241, 248, 249);
+     }
+    
+     .desc_updates{
+        margin-top: 2cm;
+        position: absolute;
+        font-size: 17px;
+        color: rgb(241, 248, 249);
+     }
+    
+     .menu_updates{
+         margin-top: 5cm;
+         position: absolute;
+         word-spacing: 0.95cm;
+         font-size: 17px;
+         color: rgb(241, 248, 249);
+     }
+     
+    
+     .menu_updates_item{
+        word-spacing: 0.18cm;
+        color: rgb(241, 248, 249);
+     }
+    
+     .studio{
+         margin-top: 7cm;
+         position: absolute;
+         color: rgb(90, 90, 90);
+     }
+    
+     .email{
+         position: absolute;
+         margin-left: -11cm;
+         margin-top: 3cm;
+         
+         
+     }
+    
+ 
+     /*block_contact*/
+    
+    .contact{
+       
+      
+        background-color: rgb(90, 90, 90);
+        position: absolute;
+        margin-left: 30cm;
+        margin-top: -8cm;
+        color: rgb(241, 248, 249);
+    }
+    
+    .contact_name{
+        margin-top: 1cm;
+         position: absolute;
+         font-size: 30px;
+         color: black;
+         color: rgb(241, 248, 249);
+    }
+    
+    .adress{
+        margin-top: 2.5cm;
+        font-size: 17px;
+    }
+    
+    .img_logocontact{
+        margin-top: 1cm;
+    }

@@ -80,45 +80,33 @@ html, body {
 }
 
 .logo_department{
-    text-align: center;
-    margin-top: 50px;
+    margin-top: 2%;
+   text-align: center;
 }
 
-.block-departments{
-    background-color:  rgb(242, 244, 247);
-
-    width: 600px;
-    
-   
-   
-}
-
-.block-department{
-    width: 600px;
-    height: 130px;
-    background-color: white;
+.data_block{
+    width: 700px;
+    height: 250px;
+    margin-left: 25%;
+margin-top: 3%;
+background-color: white;
     border-radius: 10px;
-    margin-top: 20px;
     border: 1px solid rgb(200, 200, 200);
-    padding: 20px;
-    color: black;
-    margin-left: 400px;
     text-align: center;
 }
 
-.block-department:hover{
+.button_add{
+    text-align: center;
+    border: 1px solid;
+    height: 60px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: white;
+  }
+
+  .button_add:hover{
     background-color:  rgb(242, 244, 247);
-   
-   }
-
-.name_department{
-    
-    font-size: 24px;
-}
-
-.about_department{
-    font-size: 18px;
-}
+  }
 
 /*Футер*/
 
@@ -212,3 +200,6 @@ html, body {
     .img_logocontact{
         margin-top: 1cm;
     }
+
+
+

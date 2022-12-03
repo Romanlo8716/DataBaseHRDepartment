@@ -222,8 +222,7 @@ background-color: white;
 /*Футер*/
 
 .footer{
-    margin-top: 50px;
-    height: 9.88cm;
+    height: 9cm;
     background-color: rgb(90, 90, 90);
      }
     
@@ -235,10 +234,10 @@ background-color: white;
       /*block_updates*/
     
      .updates{
-         height: 9.31cm;
-         width: 21.38cm;
+         height: 8cm;
+    
          background-color: rgb(90, 90, 90);
-         margin-left: 10.82cm;
+         margin-left: 8cm;
      }
     
      .updates_name{
@@ -283,19 +282,16 @@ background-color: white;
          
      }
     
-     .img_email{
-         height: 0.9cm;
-         width: 7.5cm;
-     }
+ 
      /*block_contact*/
     
     .contact{
-        width: 14cm;
-        height: 9.31cm;
+       
+      
         background-color: rgb(90, 90, 90);
         position: absolute;
         margin-left: 30cm;
-        margin-top: -9.32cm;
+        margin-top: -8cm;
         color: rgb(241, 248, 249);
     }
     
@@ -315,6 +311,3 @@ background-color: white;
     .img_logocontact{
         margin-top: 1cm;
     }
-
-
-

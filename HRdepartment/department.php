@@ -62,14 +62,14 @@ while($resultDepartment =  mysqli_fetch_array($departmentCon)){
 <div class="number_department">Сотрудники (Общее количество: <?=numberEmployeesForDepartment($numberDepartment)?>)</div>
 
 <div class="block-workers" >
-<?php
+    <?php
 
     while($workers = mysqli_fetch_array($connectionWorkersInDepartment))
     {
         $idWorker = $workers["id"];
         $show_img = base64_encode($workers['image']);
         $vacationCon = mysqli_query($link, "select * from vacation_order where employees_report_card = '$idWorker' order by order_number_vacation desc limit 1");
-        $releaseCon = mysqli_query($link, "select * from release_order where employees_report_card = '$idWorker' order by order_number desc limit 1");
+    
         $dateNow = date("Y-m-d");
 
     
@@ -80,27 +80,36 @@ while($resultDepartment =  mysqli_fetch_array($departmentCon)){
             <div class="image-worker"><?php if($workers["image"]== null){ echo"<br><br><br>No photo"; } else{?> <img class="photo_worker" src="data:image/jpeg;base64,<?=$show_img?>" alt=""> <?php }?></div>
            <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["name"]?> <?=$workers["surname"]?> <?=$workers["middlename"]?> </div><br> 
            
-         
+           <div class="type-desc"><h3>Состояние</h3> 
 
-            <?php  while($vacationWorkers = mysqli_fetch_array($vacationCon)){ 
+           <?php  while($vacationWorkers = mysqli_fetch_array($vacationCon)){ 
                     $dateEnd = $vacationWorkers['vacation_end_date'];
                    
-                ?>
-           
-           <div class="type-desc"><h3>Состояние</h3> <?if ($dateEnd > $dateNow) echo $vacationWorkers['type_of_vacation']; else echo "Работает"; ?></div><br>
+           if($workers['dismiss'] == null){
+             
+             if($dateEnd >= $dateNow){ 
+             echo $vacationWorkers['type_of_vacation'];} 
+             if($dateEnd < $dateNow) 
+             {echo "Работает";}
+        
+             }    
+              else if($workers['dismiss'] == 1){?> 
+              <div style="color:red;">Уволен </div> <?php }?><br>
            <?php
              }
             ?>
 
            
+           
+            </div>
         </div>
          </a>
-         <?php
-    
+   <?php
     }
    ?>
 
 </div>
+
 
 <div class="block_contact">
 <div class="logo_contact"> Контактные данные </div>
@@ -114,7 +123,7 @@ while($resultDepartment =  mysqli_fetch_array($departmentCon)){
 </div>
 
 </middle>
-
+<br><br><br><br>
 <footer class="footer">
 
     <div class="block3"></div>
@@ -126,13 +135,13 @@ while($resultDepartment =  mysqli_fetch_array($departmentCon)){
         <div class="updates_name">Работа с программой:</div>
         <div class="desc_updates">
             <br><br> В случае сбоев работы с программой<br>
-            обращайтесь к администратору
+            обращайтесь к системному администратору
         </div>
         <nav class="menu_updates" >
-            <a href="suggestions.html" class="menu_updates_item" style="text-decoration: none">Наши предложения</a>
-            <a href="news.html" class="menu_updates_item" style="text-decoration: none">Новости</a>
-            <a href="#images" class="menu_updates_item" style="text-decoration: none">Фотогалерея</a>
-            <a href="#contacts" class="menu_updates_item" style="text-decoration: none">Контакты</a>     
+            <a href="../index.php" class="menu_updates_item" style="text-decoration: none">Главная страница</a>
+            <a href="../workers.php" class="menu_updates_item" style="text-decoration: none">Сотрудники</a>
+            <a href="../departments.php" class="menu_updates_item" style="text-decoration: none">Отделы</a>
+            <a href="../Reports/reports.php" class="menu_updates_item" style="text-decoration: none">Отчеты</a>     
         </nav>
    
       </div>
