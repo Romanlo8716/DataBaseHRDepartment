@@ -25,10 +25,10 @@ include '../Connect/connect.php';
 
 <div class="menu-block">
 <nav class="menu" >
-                <a href="index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
-                <a href="workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
-                <a href="departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
-                <a href="reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
+                <a href="../index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
+                <a href="../workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
+                <a href="../departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
+                <a href="../reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
                    
 </nav>
 </div>

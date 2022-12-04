@@ -224,6 +224,20 @@ word-wrap: normal;
          
      }
     
+     .button_add{
+        text-align: center;
+        border: 1px solid;
+        height: 60px;
+        width: 150px;
+        border-radius: 10px;
+        background-color: white;
+        
+      }
+    
+      .button_add:hover{
+        background-color:  rgb(242, 244, 247);
+      }
+    
  
      /*block_contact*/
     
