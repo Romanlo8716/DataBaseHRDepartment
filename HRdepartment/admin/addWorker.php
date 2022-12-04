@@ -41,7 +41,7 @@ $image = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
        
        <?php
     }?>
-    <meta http-equiv="refresh" content="2;url=Admin.php" />
+    <meta http-equiv="refresh" content="0;url=Admin.php" />
     <?php
 }
 else {

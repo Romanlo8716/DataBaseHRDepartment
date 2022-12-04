@@ -10,18 +10,21 @@ if(!empty($_POST["title"]) && !empty($_POST["phone"]) && !empty($_POST["adress"]
     $phone = $_POST["phone"];
     $adress = $_POST["adress"];
 
-
-    $result = mysqli_query($link, "CALL addDepartment('$title', '$phone', '$adress')");
-    
-    
+    $id = $_GET["id"];
+    if(isset($id)){
+    $result = mysqli_query($link, "CALL updateDepartment('$id','$title', '$phone', '$adress')");
+    }
+    else {
+        echo "Ошибка в изменении данных!!! Данного отдела не существует";
+    }
 
     if(!empty($result)){?>
-        <h1 style="text-align:center; margin-top: 80px">Отдел успешно добавлен!<br> (Вы будете возвращены на страницу через 2 секунды)</h1>
+        <h1 style="text-align:center; margin-top: 80px">Отдел успешно изменен!<br> (Вы будете возвращены на страницу через 2 секунды)</h1>
         <?php
     }
     else 
     {?>
-          <h1 style="text-align:center; margin-top: 80px">Ошибка добавления отдела!</h1>
+          <h1 style="text-align:center; margin-top: 80px">Ошибка изменения отдела!</h1>
        
        <?php
     }?>

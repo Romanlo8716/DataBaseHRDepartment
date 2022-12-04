@@ -1,6 +1,13 @@
 <?php
 include '../Connect/connect.php';
+$allAdress =  mysqli_query($link, "select * from department_adress");
 
+$id = $_GET["id"];
+if(isset($id)){
+$departmentrCon = mysqli_query($link, "select * from `department` where number_department='$id'");
+}
+if(!empty($departmentrCon))
+while($resultDepartment =  mysqli_fetch_array( $departmentrCon)){
 ?>
 
 <!DOCTYPE html>
@@ -9,8 +16,10 @@ include '../Connect/connect.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отделы</title>
-    <link rel="stylesheet" href="/Style/StyleDepartments.css"/>
+    <title>Добавление отдела</title>
+    <link rel="stylesheet" href="/Style/StyleAddAdminDepartments.css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="live_search.js"></script>
 </head>
 <body>
     
@@ -35,7 +44,7 @@ include '../Connect/connect.php';
     <?php if(isset($_COOKIE['cokkie'])) { ?>
 Добро пожаловать, <?= $_COOKIE['cokkie']?>. <a href="../admin/Admin.php" class="open-admin" style="text-decoration: none" href>(Изменение данных)</a>
 <?php } else {?>
-    Для сотрудников отдела кадров, <a href="enterAdmin.php" class="open-admin" style="text-decoration: none" href>войти</a>
+    Для сотрудников отдела кадров, <a href="../enterAdmin.php" class="open-admin" style="text-decoration: none" href>войти</a>
     <?php }?>
 </div>
 
@@ -43,36 +52,30 @@ include '../Connect/connect.php';
 
 <middle>
 
-<h1 class="logo_department"> Выберите отдел для изменения </h1>
+<h1 class="logo_department">Изменение отдела </h1>
 
-<div class="block-departments">
-<?php
+<div class="data_block"> 
+<form action="updateDepartment.php?id=<?=$id?>" method="POST" enctype='multipart/form-data'>
 
-    while($departments = mysqli_fetch_array($connectionDepartments)) { 
-      $id = $departments["number_department"];
-      $numberDepartment = mysqli_query($link, "select count(*) as `count` from departments_of_the_employee where department_id = '$id'");
-      $adressDepartmentCon = mysqli_query($link, "select * from department join department_adress on department.adress_id = department_adress.adress_id where department.number_department = '$id'");
-      ?>
-    
-       
+<h2>
+<br>
+Наименование отдела: &nbsp;&nbsp;&nbsp;<input type="text" name="title" value="<?=$resultDepartment["title"]?>"><br><br>
+Номер телефона отдела: <input type="phone"  name="phone" value="<?=$resultDepartment["telephone"]?>"><br><br><br>
+Адрес отдела<br>
+<select name="adress"><option>Выберите адрес отдела</option><?php while($adress = mysqli_fetch_array($allAdress)){?> <option value=<?=$adress["adress_id"]?>><?=$adress["city"]?> <?=$adress["street"]?> <?=$adress["house"]?></option> <?php } ?>  </select>
 
-         <a href="updateAdminOneDepartment.php?id=<?=$departments["number_department"]?>"  style="text-decoration: none">
-         
-         <div class="block-department">
-          <h4 class="name_department">Название отдела: <span style="font-weight: normal;"><?=$departments["title"]?></span> </h4><br>
-          <h3 class="about_department">Количество сотрудников: <span style="font-weight: normal;"><?=numberEmployeesForDepartment($numberDepartment)?></span>  </h3><br>
-          <?php while($adressDepartment = mysqli_fetch_array($adressDepartmentCon)) { ?>
-          <h4 class="about_department">Адрес отдела: <span style="font-weight: normal;">Город: <?=$adressDepartment["city"]?>,</span> <span style="font-weight: normal;">Улица: <?=$adressDepartment["street"]?>,</span> <span style="font-weight: normal;"> Дом: <?=$adressDepartment["house"]?>.</span> </h4><br>
-          <?php } ?>
-          <h3 class="about_department">Рабочий телефон: <span style="font-weight: normal;"><?=$departments["telephone"]?></span></h3>
-        </div>
-         </a>
-         
-    
-    <?php } ?>
-  
+
+
+</h2>
 
 </div>
+<div style="text-align:center">Обязательно введите все поля! <br> *(Все необязательные поля выделены СЕРЫМ цветом).<div>
+<div style="text-align:center; margin-top:30px">
+<input class="button_add" type="submit"name="submit"value="Изменить отдел">
+<div>
+</form>
+
+<h1 class="logo_department">Добавление сотрудника в <?=$resultDepartment["title"]?> </h1>
 
 </middle>
 <br><br><br><br>
@@ -115,3 +118,5 @@ include '../Connect/connect.php';
 
 </body>
 </html>
+
+<?php } ?>

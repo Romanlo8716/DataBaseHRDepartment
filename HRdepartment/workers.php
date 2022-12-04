@@ -109,10 +109,9 @@ include 'Connect/connect.php';
                 if($dateEnd >= $dateNow){ 
                 echo $vacationWorkers['type_of_vacation'];} 
                 if($dateEnd < $dateNow) 
-                {echo "Работает";}
+                echo "Работает";
            
-                }
-                
+            }
                 
             else if($workers['dismiss'] == 1){?> 
             <div style="color:red;">Уволен </div> <?php }

@@ -95,6 +95,10 @@ background-color:  rgb(242, 244, 247);
     
     }
 
+.managment_other{
+    text-align: center;
+}
+
 .button{
     display: inline-block; 
     height: 40px; 
@@ -113,7 +117,7 @@ background-color:  rgb(242, 244, 247);
 }
 
 .upgrade_employee{
-    height: 300px;
+    height: 160px;
     width: 210px;
 text-align: center;
 border: 1px solid rgb(200, 200, 200);

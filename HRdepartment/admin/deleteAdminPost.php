@@ -1,7 +1,9 @@
 <?php
 include '../Connect/connect.php';
 
-?>
+$postCon = mysqli_query($link, "select * from post");
+?> 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +11,8 @@ include '../Connect/connect.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отделы</title>
-    <link rel="stylesheet" href="/Style/StyleDepartments.css"/>
+    <title>Удаление должностей</title>
+    <link rel="stylesheet" href="../Style/StyleWorkers.css"/>
 </head>
 <body>
     
@@ -26,7 +28,7 @@ include '../Connect/connect.php';
                 <a href="../index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
                 <a href="../workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
                 <a href="../departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
-                <a href="../Reports/reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
+                <a href="../reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
                    
 </nav>
 </div>
@@ -41,40 +43,35 @@ include '../Connect/connect.php';
 
 </div>
 
-<middle>
+<div class="middle">
 
-<h1 class="logo_department"> Выберите отдел для изменения </h1>
 
-<div class="block-departments">
+<h1 style="text-align:center; margin-top: 40px">Выберите должность для удаления</h1>
+
+<div class="block-workersDelete" id="display">
 <?php
 
-    while($departments = mysqli_fetch_array($connectionDepartments)) { 
-      $id = $departments["number_department"];
-      $numberDepartment = mysqli_query($link, "select count(*) as `count` from departments_of_the_employee where department_id = '$id'");
-      $adressDepartmentCon = mysqli_query($link, "select * from department join department_adress on department.adress_id = department_adress.adress_id where department.number_department = '$id'");
-      ?>
+    while($post = mysqli_fetch_array($postCon))
+    {
+        ?>
+         <a href="deletePost.php?id=<?=$post["post_code"]?>"  style="text-decoration: none">
     
-       
-
-         <a href="updateAdminOneDepartment.php?id=<?=$departments["number_department"]?>"  style="text-decoration: none">
-         
-         <div class="block-department">
-          <h4 class="name_department">Название отдела: <span style="font-weight: normal;"><?=$departments["title"]?></span> </h4><br>
-          <h3 class="about_department">Количество сотрудников: <span style="font-weight: normal;"><?=numberEmployeesForDepartment($numberDepartment)?></span>  </h3><br>
-          <?php while($adressDepartment = mysqli_fetch_array($adressDepartmentCon)) { ?>
-          <h4 class="about_department">Адрес отдела: <span style="font-weight: normal;">Город: <?=$adressDepartment["city"]?>,</span> <span style="font-weight: normal;">Улица: <?=$adressDepartment["street"]?>,</span> <span style="font-weight: normal;"> Дом: <?=$adressDepartment["house"]?>.</span> </h4><br>
-          <?php } ?>
-          <h3 class="about_department">Рабочий телефон: <span style="font-weight: normal;"><?=$departments["telephone"]?></span></h3>
+         <div class="block-worker" >
+            
+        <h2 style="text-align:center;"><?=$post["title"]?><h2>
+            <br><br>
+        <h2 style="text-align:center;">Зарплата: <?=$post["salary"]?> рублей<h2>
         </div>
          </a>
-         
+         <?php
     
-    <?php } ?>
-  
+    }
+   ?>
 
 </div>
 
-</middle>
+
+</div>
 <br><br><br><br>
 <footer class="footer">
 
@@ -112,6 +109,5 @@ include '../Connect/connect.php';
       </div>
     </div>
 </footer>
-
 </body>
 </html>

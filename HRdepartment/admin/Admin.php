@@ -47,16 +47,16 @@ include '../Connect/connect.php';
 <div class="managment_employee">
 
 <a href="deleteAdminWorkers.php"  style="text-decoration: none">
-<div class="upgrade_employee"><h3 style="margin-top: 100px"> Удаление сотрудников</h3> </div>
+<div class="upgrade_employee"><h3 style="margin-top: 70px"> Удаление сотрудников</h3> </div>
 </a>
    
 
 <a href="addAdminWorkers.php"  style="text-decoration: none">
-<div class="upgrade_employee"><h3 style="margin-top: 100px"> Добавление сотрудников</h3> </div>
+<div class="upgrade_employee"><h3 style="margin-top: 70px"> Добавление сотрудников</h3> </div>
 </a>
 
 <a href="updateAdminWorkers.php"  style="text-decoration: none">
-<div class="upgrade_employee"><h3 style="margin-top: 100px"> Изменение сотрудников</h3> </div>
+<div class="upgrade_employee"><h3 style="margin-top: 70px"> Изменение сотрудников</h3> </div>
 </a>
 
 
@@ -67,23 +67,44 @@ include '../Connect/connect.php';
 <div class="managment_department">
 
 <a href="deleteAdminDepartments.php"  style="text-decoration: none">
-<div class="upgrade_employee"><h3 style="margin-top: 100px"> Удаление отделов</h3> </div>
+<div class="upgrade_employee"><h3 style="margin-top: 70px"> Удаление отделов</h3> </div>
 </a>
    
 
 <a href="addAdminDepartments.php"  style="text-decoration: none">
-<div class="upgrade_employee"><h3 style="margin-top: 100px"> Добавление отделов</h3> </div>
+<div class="upgrade_employee"><h3 style="margin-top: 70px"> Добавление отделов</h3> </div>
 </a>
 
 <a href="updateAdminDepartments.php"  style="text-decoration: none">
-<div class="upgrade_employee"><h3 style="margin-top: 100px"> Изменение отделов</h3> </div>
+<div class="upgrade_employee"><h3 style="margin-top: 70px"> Изменение отделов</h3> </div>
 </a>
 
 </div>
 
+<div class="managment_other">
+<h1 style="text-align: center; margin-top: 40px">Прочая информация</h1>
+<h2 style="text-align: center; margin-top: 40px"> Должности </h2>
 
+<br><br>
+<a href="deleteAdminPost.php"  style="text-decoration: none">
+<div class="upgrade_employee"><h3 style="margin-top: 70px"> Удаление должности</h3> </div>
+</a>
 
+<a href="addAdminPost.php"  style="text-decoration: none">
+<div class="upgrade_employee"><h3 style="margin-top: 70px"> Добавление должности</h3> </div>
+</a>
 
+<h2 style="text-align: center; margin-top: 40px"> Адрес отдела </h2>
+<br><br>
+<a href="deleteAdminAdress.php"  style="text-decoration: none">
+<div class="upgrade_employee"><h3 style="margin-top: 70px"> Удаление адреса</h3> </div>
+</a>
+
+<a href="addAdminAdress.php"  style="text-decoration: none">
+<div class="upgrade_employee"><h3 style="margin-top: 70px"> Добавление адреса</h3> </div>
+</a>
+
+</div>
 
 </middle>
 <br><br><br><br>

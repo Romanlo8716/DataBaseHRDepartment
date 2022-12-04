@@ -84,7 +84,6 @@ function uploadFile(target) {
 <br><br>
 <h3 class="adress_block">Место прописки: Субъект: <input type="text" size="17" name="subject"> &emsp;&nbsp;&nbsp; Город: <input type="text" size= "19" name="city">  <br><br><div style="margin-left: 150px;">Улица: <input type="text" size="16px" name="street"> Дом: <input type="text" size="5" name="house"> Квартира: <input type="text" size="5" name="flat"> </div> </h3>
 
-<br><h3 class="adress_block " style="color:gray;">Должность: <select name="post"><option>Выберите должность</option><?php while($post = mysqli_fetch_array($allPost)){?> <option value=<?=$post["post_code"]?>><?=$post["title"]?></option> <?php } ?>  </select> </h3>
 
 </div>
 <div style="text-align:center">Обязательно введите все поля! <br> *(Все необязательные поля выделены СЕРЫМ цветом).<div>

@@ -17,4 +17,4 @@ else
 }
 
 ?>
-<meta http-equiv="refresh" content="2;url=deleteAdminDepartments.php" />
+<meta http-equiv="refresh" content="0;url=deleteAdminDepartments.php" />
