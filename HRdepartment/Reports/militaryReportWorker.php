@@ -40,7 +40,7 @@ if(isset($id)){
     <?php if(isset($_COOKIE['cokkie'])) { ?>
 Добро пожаловать, <?= $_COOKIE['cokkie']?>. <a href="../admin/Admin.php" class="open-admin" style="text-decoration: none" href>(Изменение данных)</a>
 <?php } else {?>
-    Для сотрудников отдела кадров, <a href="enterAdmin.php" class="open-admin" style="text-decoration: none" href>войти</a>
+    Для сотрудников отдела кадров, <a href="../enterAdmin.php" class="open-admin" style="text-decoration: none" href>войти</a>
     <?php }?>
 </div>
 
@@ -60,15 +60,15 @@ if(isset($id)){
 <h3>Фамилия:__________<span class="pass_info" style="font-weight: normal"><?=$workers['surname']?></span>_____________________________</h3><br>
 <h3>Имя:_______________<span class="pass_info" style="font-weight: normal"><?=$workers['name']?></span>____________________________</h3><br>
 <h3>Отчество:__________<span class="pass_info" style="font-weight: normal"><?=$workers['middlename']?></span>_____________________________<br></h3><br>
-<?php while($resultMilitaryLast = mysqli_fetch_array( $militaryConLast)){ ?>
-    <h3>Категория годности:_<span class="pass_info" style="font-weight: normal"><?=$resultMilitaryLast['category_worthiness']?></span>___ Звание:_<span class="pass_info" style="font-weight: normal"><?=$resultMilitaryLast['title']?></span>_________________<br></h3><br></h3><br>
+
+    <h3>Категория годности:_<span class="pass_info" style="font-weight: normal"><?=$workers['shelf_life']?></span>___ Звание:_<span class="pass_info" style="font-weight: normal"><?=$workers['military_title']?></span>_________________<br></h3><br></h3><br>
 
 </div>
-
+<?php while($resultMilitaryLast = mysqli_fetch_array( $militaryConLast)){?>
 <div class="lastMed">
 
     <h3>Последняя дата состояния:__________<span class="pass_infoLast" style="font-weight: normal;"><?=$resultMilitaryLast['date_start_condition']?> - <?=$resultMilitaryLast['date_end_condition']?></span>____________________________</h3><br>
-    <h3>Описание:____<span class="pass_infoLast" style="font-weight: normal;"><?=convertWordWrap($resultMilitaryLast['condition'])?></span>_________________________________________________<br><br>_______________________________________________________________</h3><br>
+    <h3>Описание:____<span class="pass_infoLast" style="font-weight: normal;"><?=convertWordWrap($resultMilitaryLast['military_condition'])?></span>_________________________________________________<br><br>_______________________________________________________________</h3><br>
 <?php }} ?>
 </div>
 </div>
@@ -82,7 +82,7 @@ if(isset($id)){
          <div class="block-worker" >
             <h4>Дата начала сборов: _____________<span class="med_info" style="font-weight: normal"> <?=$resultMilitary['date_start_condition']?></span>______________________________________</h4><br>
             <h4>Дата окончания сборов: _____________<span class="med_info" style="font-weight: normal"> <?=$resultMilitary['date_end_condition']?></span>___________________________________</h4><br>
-            <h4>Состояние: _____<span class="med_info" style="font-weight: normal"> <?=convertWordWrap($resultMilitary['condition'])?></span>______________________________________________________<br><br>______________________________________________________________________</h4><br>
+            <h4>Состояние: _____<span class="med_info" style="font-weight: normal"> <?=convertWordWrap($resultMilitary['military_condition'])?></span>______________________________________________________<br><br>______________________________________________________________________</h4><br>
         </div>
       
          <?php } ?>
