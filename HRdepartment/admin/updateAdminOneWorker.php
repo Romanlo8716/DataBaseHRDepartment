@@ -171,7 +171,7 @@ function uploadFile(target) {
 
 
 <div class="work_block">
-<a href="AdminReports/updateUpdateWorkReportWorker.php?id=<?=$id?>" class="report_item" style="text-decoration: none">
+<a href="AdminReports/updateLaborWorkReportWorker.php?id=<?=$id?>" class="report_item" style="text-decoration: none">
 <div class="img_block">
 <img class="img_report" src="../image/work.png" alt="">
 </div>

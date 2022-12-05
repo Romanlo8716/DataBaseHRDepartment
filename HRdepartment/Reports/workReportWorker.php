@@ -59,7 +59,7 @@ if(isset($id)){
 <h3>Имя:_______________<span class="pass_info" style="font-weight: normal"><?=$workers['name']?></span>_____________________________</h3><br>
 <h3>Отчество:__________<span class="pass_info" style="font-weight: normal"><?=$workers['middlename']?></span>______________________________</h3><br>
 <?php while($resultLaborLast = mysqli_fetch_array( $laborConLast)){ ?>
-<h3>Номер трудовой книги:__________<span class="pass_info" style="font-weight: normal"><?=$resultLaborLast['number_labor_book']?></span>__________________<br></h3><br>
+<h3>Номер трудовой книги:__________<span class="pass_info" style="font-weight: normal"><?=$workers['number_labor_book']?></span>__________________<br></h3><br>
 </div>
 
 <div class="lastMed">
