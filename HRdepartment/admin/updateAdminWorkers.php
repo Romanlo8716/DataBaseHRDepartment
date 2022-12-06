@@ -1,6 +1,6 @@
 <?php
 include '../Connect/connect.php';
-
+$connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` where dismiss IS NULL OR dismiss = ''");
 
 ?> 
 <!DOCTYPE html>
@@ -70,67 +70,64 @@ include '../Connect/connect.php';
     <h1 style="text-align:center"> Выберите сотрудника для изменения </h1>
 <?php
 
-    while($workers = mysqli_fetch_array($connectionWorkers))
-    {
-        $id = $workers["id"];
-        if($workers['image'] != null){
-            $show_img = base64_encode($workers['image']);
-            }
+while($workers = mysqli_fetch_array($connectionWorkersNoDissmis))
+{
+    $id = $workers["id"];
+    if($workers['image'] != null){
+        $show_img = base64_encode($workers['image']);
+        }
+
         $departmentCon = mysqli_query($link, "select title from department JOIN departments_of_the_employee ON departments_of_the_employee.department_id=department.number_department where departments_of_the_employee.employee_id = '$id'");
         $vacationCon = mysqli_query($link, "select * from vacation_order where employees_report_card = '$id' order by order_number_vacation desc limit 1");
+    $dateNow = date("Y-m-d");
+
+
+    ?>
+     <a href="updateAdminOneWorker.php?id=<?=$workers["id"]?>"  style="text-decoration: none">
+
+     <div class="block-worker" >
+        <div class="image-worker"><?php if($workers["image"]== null){ echo"<br><br><br>No photo"; } else{?> <img class="photo_worker" src="data:image/jpeg;base64,<?=$show_img?>" alt=""> <?php }?></div>
+       <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["name"]?> <?=$workers["surname"]?> <?=$workers["middlename"]?> </div><br> 
+       
+      
+       
+        <div class="type-desc"><h3>Отдел</h3><?php while($departmentWorkers =  mysqli_fetch_array( $departmentCon)){ $department = $departmentWorkers['title']; echo "$department | "; }?> </div><br>
+     
+
         
-        $dateNow = date("Y-m-d");
+       
+       <div class="type-desc"><h3>Состояние  </h3> 
+       <?php  
+       
+       $row = mysqli_num_rows($vacationCon);
+       if ($row == 0)
+       {
+        echo "Работает";
+       }
+      
+           
+            while ($vacation = mysqli_fetch_array( $vacationCon)){
+                
+             if($vacation["vacation_end_date"] >=  $dateNow = date("Y-m-d")) {?>
+               <div> <?=$vacation['type_of_vacation']?> С <?=$vacation['vacation_start_date']?> до <?=$vacation['vacation_end_date']?></div>
+             <?php }
+             else 
+             echo "Работает";
+            }
 
-    
+       
+       
+      
+     
         ?>
-         <a href="updateAdminOneWorker.php?id=<?=$workers["id"]?>"  style="text-decoration: none">
-    
-         <div class="block-worker" >
-            <div class="image-worker"><?php if($workers["image"]== null){ echo"<br><br><br>No photo"; } else{?> <img class="photo_worker" src="data:image/jpeg;base64,<?=$show_img?>" alt=""> <?php }?></div>
-           <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["name"]?> <?=$workers["surname"]?> <?=$workers["middlename"]?> </div><br> 
-           
-          
-           
-            <div class="type-desc"><h3>Отдел</h3><?php while($departmentWorkers =  mysqli_fetch_array( $departmentCon)){ $department = $departmentWorkers['title']; echo "$department | "; }?> </div><br>
-         
-
-            
-           
-           <div class="type-desc"><h3>Состояние  </h3> 
-           <?php  
-            
-           while($vacationWorkers = mysqli_fetch_array($vacationCon)){ 
-          
-                $dateEnd = $vacationWorkers['vacation_end_date'];
-               
-                
-         
-            if($workers['dismiss'] == null){
-             
-                if($dateEnd >= $dateNow){ 
-                echo $vacationWorkers['type_of_vacation'];} 
-                if($dateEnd < $dateNow) 
-                {echo "Работает";}
-           
-                }
-                
-                
-            else if($workers['dismiss'] == 1){?> 
-            <div style="color:red;">Уволен </div> <?php }
-            
-         
-
-         
-             }
-            ?>
 </div><br>
-           
-        </div>
-         </a>
-         <?php
-    
-    }
-   ?>
+       
+    </div>
+     </a>
+     <?php
+
+}
+?>
 
 </div>
 

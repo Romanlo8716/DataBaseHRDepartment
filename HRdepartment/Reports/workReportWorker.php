@@ -76,10 +76,12 @@ if(isset($id)){
 <?php while($resultLabor = mysqli_fetch_array($laborCon)){?>
 
     
-         <div class="block-worker" >
-            <h4>Дата: _____________<span class="med_info" style="font-weight: normal"> <?=$resultLabor['date_information']?></span>__________________ Стаж:___________<span class="med_info" style="font-weight: normal"> <?=$resultLabor['experience']?> лет</span>__________________</h4><br>
+    <div class="block-worker_Labor" >
+         <div style="text-align:center"><h4>Наименование работы: __<span class="med_info" style="font-weight: normal"> <?=$resultLabor['title_work']?></span>_______________________________</h4></div><br>
+            <h4>Дата: _____________<span class="med_info" style="font-weight: normal"> <?=$resultLabor['date_information']?></span>__________________ Стаж:___________<span class="med_info" style="font-weight: normal"> <?=$resultLabor['experience']?> лет</span>___________________</h4><br>
             <h4>Сведения: _____<span class="med_info" style="font-weight: normal"> <?=convertWordWrap($resultLabor['information_work'])?></span>__________________________________________________________<br><br>_________________________________________________________________________</h4><br>
-            <h4>Наименование документа: _<span class="med_info" style="font-weight: normal"> <?=$resultLabor['title_document']?></span>_______ &nbsp Номер: _<span class="med_info" style="font-weight: normal"> <?=$resultLabor['number_document']?></span>___ &nbsp Дата документа: _<span class="med_info" style="font-weight: normal"> <?=$resultLabor['date_document']?></span>__________ </h4><br>
+            <h4>Наименование документа: _<span class="med_info" style="font-weight: normal"> <?=$resultLabor['title_document']?></span>_______________________________________________ </h4><br>
+            <div style="text-align:center"><h4> Номер: _<span class="med_info" style="font-weight: normal"> <?=$resultLabor['number_document']?></span>______ &nbsp Дата документа: _<span class="med_info" style="font-weight: normal"> <?=$resultLabor['date_document']?></span>__________ </h4></div><br>
         </div>
       
          <?php } ?>
