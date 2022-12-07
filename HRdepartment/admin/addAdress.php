@@ -15,12 +15,12 @@ $result = mysqli_query($link, "CALL addAdress('$city','$street', '$house')");
     
 
     if(!empty($result)){?>
-        <h1 style="text-align:center; margin-top: 80px">Должность успешно добавлена!<br> (Вы будете возвращены на страницу через 2 секунды)</h1>
+        <h1 style="text-align:center; margin-top: 80px">Адрес отделов успешно добавлен!<br> (Вы будете возвращены на страницу через 2 секунды)</h1>
         <?php
     }
     else 
     {?>
-          <h1 style="text-align:center; margin-top: 80px">Ошибка добавления должности!</h1>
+          <h1 style="text-align:center; margin-top: 80px">Ошибка добавления адреса отделов!</h1>
        
        <?php
     }?>

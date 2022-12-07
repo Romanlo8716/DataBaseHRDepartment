@@ -255,7 +255,46 @@ width: 200px;
     background-color:  rgb(242, 244, 247);
 }
 
+.block-worker{
+    width: 600px;
+    height: 130px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid rgb(200, 200, 200);
+    padding: 20px;
+    color: black;
+ 
+}
 
+.block-workers{
+  
+    margin-left: 400px;
+}
+
+.pass_infoLast{
+    position: absolute;
+   
+}
+
+.search_post{
+    width: 640px;
+    height: 80px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgb(200, 200, 200);
+    margin-top: 20px;
+   
+}
+
+.button_add{
+    text-align: center;
+    border: 1px solid;
+    height: 30px;
+    width: 90px;
+    border-radius: 10px;
+    background-color: rgb(150, 150, 150);
+  }
 
 /*Футер*/
 

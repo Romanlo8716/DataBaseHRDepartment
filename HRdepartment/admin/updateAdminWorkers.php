@@ -98,7 +98,6 @@ while($workers = mysqli_fetch_array($connectionWorkersNoDissmis))
        
        <div class="type-desc"><h3>Состояние  </h3> 
        <?php  
-       
        $row = mysqli_num_rows($vacationCon);
        if ($row == 0)
        {
@@ -114,11 +113,6 @@ while($workers = mysqli_fetch_array($connectionWorkersNoDissmis))
              else 
              echo "Работает";
             }
-
-       
-       
-      
-     
         ?>
 </div><br>
        

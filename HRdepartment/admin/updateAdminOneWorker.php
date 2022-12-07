@@ -6,7 +6,7 @@ $allDepartment = mysqli_query($link, "select * from department");
 $id = $_GET["id"];
 if(isset($id)){
 $workerCon = mysqli_query($link, "select * from `people_table` where id='$id'");
-$postCon = mysqli_query($link, "select * from post JOIN post_of_the_employee ON post_of_the_employee.post_Code=post.post_code  where post_of_the_employee.table_number='$id'");
+$postCon = mysqli_query($link, "select * from post JOIN post_of_the_employee ON post_of_the_employee.post_Code=post.post_code  where post_of_the_employee.table_number='$id' and (post_of_the_employee.dismiss_post IS NULL OR post_of_the_employee.dismiss_post = '')");
 $departmentCon = mysqli_query($link, "select * from department JOIN departments_of_the_employee ON departments_of_the_employee.department_id=department.number_department where departments_of_the_employee.employee_id = '$id'");
 
 }

@@ -43,7 +43,8 @@ $post = $_POST["post"];
             $result = mysqli_query($link, "CALL updateWorker('$id','$image','$surename','$name','$middlename','$gender','$birthday','$series_pas','$number_pas','$subject','$city','$street','$house','$flat')");
             if($post != 0)
             {
-            $addPostOfEmployee = mysqli_query($link, "CALL addPostOfEmployee('$post', $id)");
+            $dateNow = date("Y-m-d");
+            $addPostOfEmployee = mysqli_query($link, "CALL addPostOfEmployee('$post', $id, '$dateNow')");
             }
             if($department != 0)
             {
@@ -70,7 +71,7 @@ $post = $_POST["post"];
     }?>
 
 
-    <meta http-equiv="refresh" content="0;url=updateAdminOneWorker.php?id=<?=$id?>" />
+    <meta http-equiv="refresh" content="0;url=updateAdminWorkers.php?id=<?=$id?>" />
     <?php
 }
 else {

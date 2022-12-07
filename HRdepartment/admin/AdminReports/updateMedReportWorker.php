@@ -54,9 +54,9 @@ if(isset($id)){
 
 <div class="panel-admin">
     <?php if(isset($_COOKIE['cokkie'])) { ?>
-Добро пожаловать, <?= $_COOKIE['cokkie']?>. <a href="../admin/Admin.php" class="open-admin" style="text-decoration: none" href>(Изменение данных)</a>
+Добро пожаловать, <?= $_COOKIE['cokkie']?>. <a href="../../admin/Admin.php" class="open-admin" style="text-decoration: none" href>(Изменение данных)</a>
 <?php } else {?>
-    Для сотрудников отдела кадров, <a href="enterAdmin.php" class="open-admin" style="text-decoration: none" href>войти</a>
+    Для сотрудников отдела кадров, <a href="../enterAdmin.php" class="open-admin" style="text-decoration: none" href>войти</a>
     <?php }?>
 </div>
 

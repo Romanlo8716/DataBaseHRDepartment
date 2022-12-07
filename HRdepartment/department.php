@@ -4,8 +4,8 @@ $id = $_GET["id"];
 
 if(isset($id)){
     $departmentCon = mysqli_query($link, "select * from `department` where number_department='$id'");
-    $adressDepartmentCon = mysqli_query($link, "select * from department join department_adress on department.adress_id = department_adress.adress_id where department.number_department = '$id'");
-$connectionWorkersInDepartment = mysqli_query($link, "select * from people_table join departments_of_the_employee on people_table.id = departments_of_the_employee.employee_id where departments_of_the_employee.department_id = '$id'");
+    $adressDepartmentCon = mysqli_query($link, "select * from department join department_adress on department.adress_id = department_adress.adress_id where department.number_department = '$id' ");
+$connectionWorkersInDepartment = mysqli_query($link, "select * from people_table join departments_of_the_employee on people_table.id = departments_of_the_employee.employee_id where departments_of_the_employee.department_id = '$id' and people_table.dismiss IS NULL OR dismiss = ''");
 while($departments = mysqli_fetch_array($connectionDepartments)) { 
     $numberDepartment = mysqli_query($link, "select count(*) as `count` from departments_of_the_employee where department_id = '$id'");
  }
@@ -82,21 +82,29 @@ while($resultDepartment =  mysqli_fetch_array($departmentCon)){
            
            <div class="type-desc"><h3>Состояние</h3> 
 
-           <?php  while($vacationWorkers = mysqli_fetch_array($vacationCon)){ 
-                    $dateEnd = $vacationWorkers['vacation_end_date'];
-                   
-           if($workers['dismiss'] == null){
-             
-             if($dateEnd >= $dateNow){ 
-             echo $vacationWorkers['type_of_vacation'];} 
-             if($dateEnd < $dateNow) 
-             {echo "Работает";}
-        
-             }    
-              else if($workers['dismiss'] == 1){?> 
-              <div style="color:red;">Уволен </div> <?php }?><br>
-           <?php
-             }
+           
+           <?php  
+           
+           $row = mysqli_num_rows($vacationCon);
+           if ($row == 0)
+           {
+            echo "Работает";
+           }
+          
+               
+                while ($vacation = mysqli_fetch_array( $vacationCon)){
+                    
+                 if($vacation["vacation_end_date"] >=  $dateNow = date("Y-m-d")) {?>
+                   <div> <?=$vacation['type_of_vacation']?> С <?=$vacation['vacation_start_date']?> до <?=$vacation['vacation_end_date']?></div>
+                 <?php }
+                 else 
+                 echo "Работает";
+                }
+
+           
+           
+          
+         
             ?>
 
            
