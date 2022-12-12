@@ -30,4 +30,7 @@ $result = mysqli_query($link, "CALL addAdress('$city','$street', '$house')");
 else {
 echo "Ошибка!!! Введены не все обязательные данные в поля!!! <br> (Вернитесь назад и заполните все ОБЯЗАТЕЛЬНЫЕ поля)";
 }
+
+mysqli_close($link);
+
 ?>

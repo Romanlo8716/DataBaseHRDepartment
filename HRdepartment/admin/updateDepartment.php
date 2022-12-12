@@ -34,4 +34,7 @@ if(!empty($_POST["title"]) && !empty($_POST["phone"]) && !empty($_POST["adress"]
 else {
 echo "Ошибка!!! Введены не все обязательные данные в поля!!! <br> (Вернитесь назад и заполните все ОБЯЗАТЕЛЬНЫЕ поля)";
 }
+
+mysqli_close($link);
+
 ?>

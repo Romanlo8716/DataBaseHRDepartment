@@ -20,7 +20,7 @@
                 <a href="index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
                 <a href="workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
                 <a href="departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
-                <a href="reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
+                <a href="Reports/reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
                    
 </nav>
 </div>
@@ -36,10 +36,36 @@
 </div>
 
 <div class="middle">
-    <div class="desc-middle">
-Добро пожаловать в приложение<br>
- &nbsp  &nbsp  &nbsp отдела кадров предприятия
+    <div class="desc-middle" style="text-align:center;">
+Добро пожаловать на сайт <br>
+для отдела кадров
+   </div>
+
+<div class="block1_middle">
+
+<a href="workers.php" style="text-decoration: none">
+<div class="block_workers"> 
+<h3 style="margin-top:110px">Просмотр сотрудников</h3>
 </div>
+</a>
+
+<a href="departments.php" style="text-decoration: none">
+<div class="block_workers"> 
+<h3 style="margin-top:110px">Просмотр отделов</h3>
+</div>
+</a>
+
+<a href="../Reports/reports.php" style="text-decoration: none">
+<div class="block_workers"> 
+<h3 style="margin-top:110px">Просмотр отчета по<br> местам работы</h3>
+</div>
+</a>
+
+</div>
+
+<h2 style="text-align:center; margin-top:50px">Редактирование данных разрешено только сотрудникам <?php if(isset($_COOKIE['cokkie'])){?><a href="../admin/Admin.php">отдела кадров</a> <?php ;}
+                                                                                                        else if(!isset($_COOKIE['cokkie'])){?> <a href="enterAdmin.php">отдела кадров</a><?php ;} ?></h2>
+
 </div>
 <br><br><br><br>
 <footer class="footer">
@@ -82,3 +108,6 @@
 
 </body>
 </html>
+<?php
+
+?>

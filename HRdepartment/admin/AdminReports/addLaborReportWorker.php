@@ -46,4 +46,7 @@ $result = mysqli_query($link, "CALL addLaborReportWorker('$id','$number_book','$
 else {
 echo "Ошибка!!! Введены не все обязательные данные в поля!!! <br> (Вернитесь назад и заполните все ОБЯЗАТЕЛЬНЫЕ поля)";
 }
+
+mysqli_close($link);
+
 ?>

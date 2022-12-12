@@ -119,4 +119,8 @@ while($resultDepartment =  mysqli_fetch_array( $departmentrCon)){
 </body>
 </html>
 
-<?php } ?>
+<?php } 
+
+mysqli_close($link);
+
+?>

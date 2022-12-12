@@ -37,4 +37,7 @@ $name = $department['title'];
 </div>
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>
 

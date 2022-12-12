@@ -3,7 +3,7 @@ include '../Connect/connect.php';
 $id = $_GET["id"];
 if(isset($id)){
 $workerCon = mysqli_query($link, "select * from `people_table` where id='$id'");
-$postCon = mysqli_query($link, "select title from post JOIN post_of_the_employee ON post_of_the_employee.post_Code=post.post_code  where post_of_the_employee.table_number='$id' and (post_of_the_employee.dismiss_post IS NULL OR post_of_the_employee.dismiss_post = '')");
+$postCon = mysqli_query($link, "select title from post JOIN post_of_the_employee ON post_of_the_employee.post_Code=post.post_code  where post_of_the_employee.table_number='$id' and (post_of_the_employee.date_end IS NULL)");
 $postConAll = mysqli_query($link, "select * from post JOIN post_of_the_employee ON post_of_the_employee.post_Code=post.post_code  where post_of_the_employee.table_number='$id'");
 
 }
@@ -189,4 +189,7 @@ while($resultWorker =  mysqli_fetch_array( $workerCon)){
 </html>
 <?php
       }
+      
+mysqli_close($link);
+
     ?>

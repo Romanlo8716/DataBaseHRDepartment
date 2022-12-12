@@ -35,4 +35,7 @@ $result = mysqli_query($link, "UPDATE people_table SET family_position='$positio
 else{
     echo "Ошибка!!! Данного пользователя не существует";
 }
+
+mysqli_close($link);
+
 ?>

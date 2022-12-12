@@ -6,7 +6,7 @@ $allDepartment = mysqli_query($link, "select * from department");
 $id = $_GET["id"];
 if(isset($id)){
 $workerCon = mysqli_query($link, "select * from `people_table` where id='$id'");
-$postCon = mysqli_query($link, "select * from post JOIN post_of_the_employee ON post_of_the_employee.post_Code=post.post_code  where post_of_the_employee.table_number='$id' and (post_of_the_employee.dismiss_post IS NULL OR post_of_the_employee.dismiss_post = '')");
+$postCon = mysqli_query($link, "select * from post JOIN post_of_the_employee ON post_of_the_employee.post_Code=post.post_code  where post_of_the_employee.table_number='$id' and (post_of_the_employee.date_end IS NULL)");
 $departmentCon = mysqli_query($link, "select * from department JOIN departments_of_the_employee ON departments_of_the_employee.department_id=department.number_department where departments_of_the_employee.employee_id = '$id'");
 
 }
@@ -97,10 +97,10 @@ function uploadFile(target) {
 <h3>Имя: &emsp;&emsp;&nbsp;<input type="text" name="name" value="<?=$resultWorker["name"]?>"/></h3><br>
 <h3 style="color:gray;">Отчество: <input type="text" name="middlename" value="<?=$resultWorker["middlename"]?>"/></h3><br>
 <h3>Пол: <select name="gender"><option value="0">Выберите пол</option><?php if($resultWorker["gender"] == "М"){?> <option value="1" selected>М</option> <option value="2">Ж</option> <?php } else if ($resultWorker["gender"] == "Ж") {?> <option value="1" selected>М</option> <option value="2">Ж</option> <?php } ?>  </select> &emsp;&emsp;&nbsp;&nbsp; Дата рождения: <input type="date" name="birthday" value="<?=$resultWorker["birthday"]?>"></h3><br>
-<h3>Серия паспорта:<input type="text" size= "5" onkeypress='validate(event)' name="series_pas" value="<?=$resultWorker["passport_series"]?>"/> Номер паспорта: <input type="text" size= "10" onkeypress='validate(event)' name="number_pas" value="<?=$resultWorker["passport_number"]?>"/></h3><br>
+<h3>Серия паспорта:<input type="number"  name="series_pas" value="<?=$resultWorker["passport_series"]?>"/> Номер паспорта: <input type="number" size= "10" name="number_pas" value="<?=$resultWorker["passport_number"]?>"/></h3><br>
 </div>
 <br><br>
-<h3 class="adress_block">Место прописки: Субъект: <input type="text" size="17" name="subject" value="<?=$resultWorker["region"]?>"> &emsp;&nbsp;&nbsp; Город: <input type="text" size= "19" name="city" value="<?=$resultWorker["city"]?>">  <br><br><div style="margin-left: 150px;">Улица: <input type="text" size="16px" name="street" value="<?=$resultWorker["street"]?>"> Дом: <input type="text" size="5" name="house" value="<?=$resultWorker["house"]?>"> Квартира: <input type="text" size="5" name="flat" value="<?=$resultWorker["apartment_number"]?>"> </div> </h3>
+<h3 class="adress_block">Место прописки: Субъект: <input type="text" size="17" name="subject" value="<?=$resultWorker["region"]?>"> &emsp;&nbsp;&nbsp; Город: <input type="text" size= "19" name="city" value="<?=$resultWorker["city"]?>">  <br><br><div style="margin-left: 150px;">Улица: <input type="text" size="16px" name="street" value="<?=$resultWorker["street"]?>"> Дом: <input type="number" size="5" name="house" value="<?=$resultWorker["house"]?>"> Квартира: <input type="number" size="5" name="flat" value="<?=$resultWorker["apartment_number"]?>"> </div> </h3>
 
 <br><h3 class="adress_block " style="color:gray;">Должность: <select name="post" ><option value="0">Выберите должность</option><?php while($post = mysqli_fetch_array($allPost)){?> <option value=<?=$post["post_code"]?>><?=$post["title"]?></option> <?php } ?>   </select>
 &emsp;&nbsp;&nbsp;Отдел: <select name="department" ><option value="0">Выберите отдел</option><?php while($department = mysqli_fetch_array($allDepartment)){?> <option value=<?=$department["number_department"]?>><?=$department["title"]?></option> <?php } ?>   </select>
@@ -263,4 +263,8 @@ function uploadFile(target) {
 
 </body>
 </html>
-<?php } ?>
+<?php } 
+
+mysqli_close($link);
+
+?>

@@ -134,3 +134,6 @@ if(isset($id)){
 
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

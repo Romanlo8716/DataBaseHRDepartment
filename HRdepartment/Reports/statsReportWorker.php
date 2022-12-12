@@ -138,3 +138,6 @@ while($vacationWorkersLast = mysqli_fetch_array($vacationConLast)){
 
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

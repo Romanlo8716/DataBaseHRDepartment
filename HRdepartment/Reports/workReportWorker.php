@@ -126,3 +126,6 @@ if(isset($id)){
 </footer>
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

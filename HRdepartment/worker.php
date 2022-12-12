@@ -3,7 +3,7 @@ include 'Connect/connect.php';
 $id = $_GET["id"];
 if(isset($id)){
 $workerCon = mysqli_query($link, "select * from `people_table` where id='$id'");
-$postCon = mysqli_query($link, "select title from post JOIN post_of_the_employee ON post_of_the_employee.post_Code=post.post_code  where post_of_the_employee.table_number='$id' and (post_of_the_employee.dismiss_post IS NULL OR post_of_the_employee.dismiss_post = '')");
+$postCon = mysqli_query($link, "select title from post JOIN post_of_the_employee ON post_of_the_employee.post_Code=post.post_code  where post_of_the_employee.table_number='$id' and (post_of_the_employee.date_end IS NULL)");
 }
 else{
   echo "Переменная не инициализированна";
@@ -19,8 +19,9 @@ while($resultWorker =  mysqli_fetch_array( $workerCon)){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Сотрудник</title>
     <link rel="stylesheet" href="/Style/StyleOneWorker.css"/>
+    
 </head>
 <body>
 
@@ -151,6 +152,9 @@ while($resultWorker =  mysqli_fetch_array( $workerCon)){
 </a> 
 </div>
 
+<a href="reportsPDF/reportPDF.php?id=<?=$id?>">
+<h1 style="text-align:center;margin-top:50px"> Сделать печатный отчет по сотруднику <h1>
+</a>
 
 </div>
 <br><br><br><br>
@@ -200,4 +204,5 @@ while($resultWorker =  mysqli_fetch_array( $workerCon)){
 </html>
 <?php
       }
+      mysqli_close($link);
     ?>

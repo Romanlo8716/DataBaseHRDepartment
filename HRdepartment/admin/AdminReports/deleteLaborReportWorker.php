@@ -19,3 +19,6 @@ else
 
 ?>
 <meta http-equiv="refresh" content="0;url=updateLaborWorkReportWorker.php?id=<?=$idEmp?>" />
+<?php
+mysqli_close($link);
+?>

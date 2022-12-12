@@ -34,4 +34,7 @@ $result = mysqli_query($link, "CALL addMedReportWorker('$id','$place','$date', '
 else {
 echo "Ошибка!!! Введены не все обязательные данные в поля!!! <br> (Вернитесь назад и заполните все ОБЯЗАТЕЛЬНЫЕ поля)";
 }
+
+mysqli_close($link);
+
 ?>

@@ -109,3 +109,6 @@ $postCon =  mysqli_query($link, "select * from post");
 
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

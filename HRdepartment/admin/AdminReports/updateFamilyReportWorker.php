@@ -27,17 +27,17 @@ if(isset($id)){
 
 <div class="menu-block">
 <nav class="menu" >
-                <a href="../index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
-                <a href="../workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
-                <a href="../departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
-                <a href="../Reports/reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
+                <a href="../../index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
+                <a href="../../workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
+                <a href="../../departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
+                <a href="../../Reports/reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
                    
 </nav>
 </div>
 
 <div class="panel-admin">
     <?php if(isset($_COOKIE['cokkie'])) { ?>
-Добро пожаловать, <?= $_COOKIE['cokkie']?>. <a href="../../admin/Admin.php" class="open-admin" style="text-decoration: none" href>(Изменение данных)</a>
+Добро пожаловать, <?= $_COOKIE['cokkie']?>. <a href="../Admin.php" class="open-admin" style="text-decoration: none" href>(Изменение данных)</a>
 <?php } else {?>
     Для сотрудников отдела кадров, <a href="../../enterAdmin.php" class="open-admin" style="text-decoration: none" href>войти</a>
     <?php }?>
@@ -79,10 +79,10 @@ if(isset($id)){
             обращайтесь к системному администратору
         </div>
         <nav class="menu_updates" >
-            <a href="../index.php" class="menu_updates_item" style="text-decoration: none">Главная страница</a>
-            <a href="../workers.php" class="menu_updates_item" style="text-decoration: none">Сотрудники</a>
-            <a href="../departments.php" class="menu_updates_item" style="text-decoration: none">Отделы</a>
-            <a href="../Reports/reports.php" class="menu_updates_item" style="text-decoration: none">Отчеты</a>     
+            <a href="../../index.php" class="menu_updates_item" style="text-decoration: none">Главная страница</a>
+            <a href="../../workers.php" class="menu_updates_item" style="text-decoration: none">Сотрудники</a>
+            <a href="../../departments.php" class="menu_updates_item" style="text-decoration: none">Отделы</a>
+            <a href="../../Reports/reports.php" class="menu_updates_item" style="text-decoration: none">Отчеты</a>     
         </nav>
    
       </div>
@@ -103,3 +103,6 @@ if(isset($id)){
 </footer>
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

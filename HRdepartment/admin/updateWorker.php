@@ -3,17 +3,22 @@
 include '../Connect/connect.php';
 
 
-
 if(!empty($_POST["surename"]) && ($_POST["gender"] != 0) && !empty($_POST["name"]) && !empty($_POST["birthday"]) && !empty($_POST["series_pas"]) && !empty($_POST["number_pas"]) && !empty($_POST["subject"]) && !empty($_POST["city"]) && !empty($_POST["street"])&& !empty($_POST["house"]) && !empty($_POST["flat"])){
 $surename = $_POST["surename"]; 
+checkTheLetter($surename);
 $name = $_POST["name"];
+checkTheLetter($name);
 $middlename = $_POST["middlename"];
+checkTheLetter($middlename);
 $birthday = $_POST["birthday"];
 $series_pas = $_POST["series_pas"];
 $number_pas = $_POST["number_pas"];
 $subject = $_POST["subject"];
+checkTheLetter($subject);
 $city = $_POST["city"];
+checkTheLetter($city);
 $street = $_POST["street"];
+checkTheLetter($street);
 $house = $_POST["house"];
 $flat = $_POST["flat"];
 $image = null;
@@ -32,6 +37,15 @@ $post = $_POST["post"];
 
         if($_FILES["image"]["tmp_name"]!= null){
             $image = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+            
+            $allowed = array('png', 'jpg');
+            $image1 = $_FILES['image']['name'];
+            $ext = pathinfo($image1, PATHINFO_EXTENSION);
+            if (!in_array($ext, $allowed) && $image1!=null) {?>
+                <h1 style="text-align:center; margin-top:50px">Ошибка!!! Убедитесь в правильности типа загружаемого изображения(png, jpg)</h1>
+               <?php
+               exit();
+            }
             }
         else if ($_FILES["image"]["tmp_name"] == null){
                 $imageWorkerCon = mysqli_query($link, "select image  from `people_table` where id='$id'");
@@ -77,4 +91,7 @@ $post = $_POST["post"];
 else {
 echo "Ошибка!!! Введены не все обязательные данные в поля!!! <br> (Вернитесь назад и заполните все ОБЯЗАТЕЛЬНЫЕ поля)";
 }
+
+mysqli_close($link);
+
 ?>

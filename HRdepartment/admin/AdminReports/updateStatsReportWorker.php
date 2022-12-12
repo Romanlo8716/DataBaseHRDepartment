@@ -28,17 +28,17 @@ if(isset($id)){
 
 <div class="menu-block">
 <nav class="menu" >
-                <a href="../index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
-                <a href="../workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
-                <a href="../departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
-                <a href="../Reports/reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
+                <a href="../../index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
+                <a href="../../workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
+                <a href="../../departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
+                <a href="../../Reports/reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
                    
 </nav>
 </div>
 
 <div class="panel-admin">
     <?php if(isset($_COOKIE['cokkie'])) { ?>
-Добро пожаловать, <?= $_COOKIE['cokkie']?>. <a href="../../admin/Admin.php" class="open-admin" style="text-decoration: none" href>(Изменение данных)</a>
+Добро пожаловать, <?= $_COOKIE['cokkie']?>. <a href="../Admin.php" class="open-admin" style="text-decoration: none" href>(Изменение данных)</a>
 <?php } else {?>
     Для сотрудников отдела кадров, <a href="../../enterAdmin.php" class="open-admin" style="text-decoration: none" href>войти</a>
     <?php }?>
@@ -58,7 +58,8 @@ if(isset($id)){
 
 <h2 style="text-align:center;margin-top:60px">Дата начала: &emsp;&nbsp;&nbsp;&nbsp;<input type="date" name="date_start"></h2><br>
 <h2 style="text-align:center;">Дата окончания: <input type="date" name="date_end"></h2><br>
-<h2 style="text-align:center;">Состояние:&nbsp;&nbsp; <input type="text" name="stats"></h2>
+<h2 style="text-align:center;">Вид отпуска:&nbsp;&nbsp; <input type="text" name="stats"></h2><br>
+<h2 style="text-align:center;">Основание:&nbsp;&emsp; <input type="text" name="footing"></h2>
 </div>
 </div>
 <div style="text-align:center; margin-top:40px"><input class="button_add" type="submit"name="submit"value="Добавить"></div>
@@ -95,10 +96,10 @@ if(isset($id)){
             обращайтесь к системному администратору
         </div>
         <nav class="menu_updates" >
-            <a href="../index.php" class="menu_updates_item" style="text-decoration: none">Главная страница</a>
-            <a href="../workers.php" class="menu_updates_item" style="text-decoration: none">Сотрудники</a>
-            <a href="../departments.php" class="menu_updates_item" style="text-decoration: none">Отделы</a>
-            <a href="../Reports/reports.php" class="menu_updates_item" style="text-decoration: none">Отчеты</a>     
+            <a href="../../index.php" class="menu_updates_item" style="text-decoration: none">Главная страница</a>
+            <a href="../../workers.php" class="menu_updates_item" style="text-decoration: none">Сотрудники</a>
+            <a href="../../departments.php" class="menu_updates_item" style="text-decoration: none">Отделы</a>
+            <a href="../../Reports/reports.php" class="menu_updates_item" style="text-decoration: none">Отчеты</a>     
         </nav>
    
       </div>
@@ -120,3 +121,6 @@ if(isset($id)){
 
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

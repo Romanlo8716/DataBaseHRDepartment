@@ -1,6 +1,6 @@
 <?php
 include '../Connect/connect.php';
-$connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` where dismiss IS NULL OR dismiss = ''");
+
 
 
 ?> 
@@ -26,10 +26,10 @@ $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` 
 
 <div class="menu-block">
 <nav class="menu" >
-                <a href="index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
-                <a href="workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
-                <a href="departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
-                <a href="reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
+                <a href="../index.php" class="menu_item" style="text-decoration: none">Главная страница</a>
+                <a href="../workers.php" class="menu_item" style="text-decoration: none">Сотрудники</a>
+                <a href="../departments.php" class="menu_item" style="text-decoration: none">Отделы</a>
+                <a href="../reports.php" class="menu_item" style="text-decoration: none">Отчёты</a>
                    
 </nav>
 </div>
@@ -61,6 +61,7 @@ $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` 
         </div >
         <div  class="field">
         <label>Отчество:</label> <input type="text" name="middlename" id="searchMiddlename"  /><p><br>
+        <div style="text-align:center; margin-top:40px"><input class="button-search" type="submit"name="submit"value="поиск"></div>
         </div >
      </form>
 </div>
@@ -70,6 +71,17 @@ $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` 
 <div class="block-workers" id="display">
     <h1 style="text-align:center">Отчет по местам работы сотрудника</h1>
 <?php
+
+if (empty($_POST["name"]) && empty($_POST["surname"]) && empty($_POST["middlename"])) {
+    $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` where dismiss IS NULL OR dismiss = ''");
+}
+else if(!empty($_POST["name"]) || !empty($_POST["surname"]) || !empty($_POST["middlename"])){
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $middlename = $_POST["middlename"];
+
+    $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` where (name = '$name' or surname= '$surname' or middlename= '$middlename')  and  dismiss IS NULL OR dismiss = ''");
+}
 
     while($workers = mysqli_fetch_array($connectionWorkersNoDissmis))
     {
@@ -88,7 +100,7 @@ $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` 
     
          <div class="block-worker" >
             <div class="image-worker"><?php if($workers["image"]== null){ echo"<br><br><br>No photo"; } else{?> <img class="photo_worker" src="data:image/jpeg;base64,<?=$show_img?>" alt=""> <?php }?></div>
-           <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["name"]?> <?=$workers["surname"]?> <?=$workers["middlename"]?> </div><br> 
+           <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["surname"]?> <?=$workers["name"]?> <?=$workers["middlename"]?> </div><br> 
            
           
            
@@ -174,3 +186,6 @@ $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` 
 
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

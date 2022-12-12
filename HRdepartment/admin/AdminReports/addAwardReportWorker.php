@@ -8,12 +8,15 @@ if(isset($_GET["id"])){
     $id = $_GET["id"];
 }
 
-if(!empty($_POST["award"])){
+if(!empty($_POST["award"]) && !empty($_POST["document_name"]) && !empty($_POST["document_number"]) && !empty($_POST["document_date"])){
 
     $award = $_POST["award"];
+    $document_name = $_POST["document_name"];
+    $document_number = $_POST["document_number"];
+    $document_date= $_POST["document_date"];
 
 
-    $resultAddAward = mysqli_query($link, "INSERT INTO awards(employees_code, award) VALUES('$id', '$award')");
+    $resultAddAward = mysqli_query($link, "INSERT INTO awards(employees_code, award, document_name, document_number, document_date) VALUES('$id', '$award', '$document_name', '$document_number', '$document_date' )");
 
     
     
@@ -34,5 +37,7 @@ if(!empty($_POST["award"])){
 else {
 echo "Ошибка!!! Введены не все обязательные данные в поля!!! <br> (Вернитесь назад и заполните все ОБЯЗАТЕЛЬНЫЕ поля)";
 }
+
+mysqli_close($link);
 
 ?>

@@ -36,4 +36,7 @@ $result = mysqli_query($link, "CALL addMilitaryReportWorker('$id','$title','$she
 else {
 echo "Ошибка!!! Введены не все обязательные данные в поля!!! <br> (Вернитесь назад и заполните все ОБЯЗАТЕЛЬНЫЕ поля)";
 }
+
+mysqli_close($link);
+
 ?>

@@ -76,10 +76,36 @@ html, body {
 }
 
 .desc-middle{
-    margin-left: 550px;
-    margin-top: 250px;
+    margin-left: 570px;
+    margin-top: -150px;
     position: absolute;
     font-size: 30px;
+}
+
+.block1_middle{
+    margin-top: 200px;
+    text-align: center;
+    
+
+   
+}
+
+
+.block_workers{
+height: 300px;
+width: 240px;
+text-align: center;
+border: 1px solid rgb(200, 200, 200);
+
+background-color: white;
+color: black;
+border-radius: 10px;
+display: table-cell;
+margin-left: 300px;
+}
+
+.block_workers:hover{
+    background-color: rgb(242, 244, 247);;
 }
 
 /*FOOTER*/

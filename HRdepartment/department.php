@@ -78,7 +78,7 @@ while($resultDepartment =  mysqli_fetch_array($departmentCon)){
     
          <div class="block-worker" >
             <div class="image-worker"><?php if($workers["image"]== null){ echo"<br><br><br>No photo"; } else{?> <img class="photo_worker" src="data:image/jpeg;base64,<?=$show_img?>" alt=""> <?php }?></div>
-           <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["name"]?> <?=$workers["surname"]?> <?=$workers["middlename"]?> </div><br> 
+           <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["surname"]?> <?=$workers["name"]?> <?=$workers["middlename"]?> </div><br> 
            
            <div class="type-desc"><h3>Состояние</h3> 
 
@@ -173,3 +173,6 @@ while($resultDepartment =  mysqli_fetch_array($departmentCon)){
     ?>
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

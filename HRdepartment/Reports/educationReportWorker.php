@@ -5,7 +5,7 @@ $id = $_GET["id"];
 if(isset($id)){
     $workerCon = mysqli_query($link, "select * from `people_table` where id='$id'");
     $educationCon = mysqli_query($link, "select * from education join people_table on education.employees_id = people_table.id where education.employees_id ='$id' order by record_id desc");
-    $awardsCon = mysqli_query($link, "select award from awards join people_table on awards.employees_code = people_table.id where awards.employees_code ='$id'");
+    $awardsCon = mysqli_query($link, "select award from awards join people_table on awards.employees_code = people_table.id where awards.employees_code ='$id' limit 4");
 }
 ?>
 <!DOCTYPE html>
@@ -65,7 +65,18 @@ if(isset($id)){
 
 <div class="lastMed">
 
-    <h3>Награды:____<span class="pass_info" style="font-weight: normal;"><?php while($resultAwards =  mysqli_fetch_array( $awardsCon)){ $award = convertWordWrap($resultAwards['award']); echo "$award | "; }?></span>__________________________________________________<br><br>_______________________________________________________________</h3><br>
+    <h3>Награды:____<span class="pass_info" style="font-weight: normal;">
+    <?php 
+    $k = 0; 
+    while($resultAwards =  mysqli_fetch_array( $awardsCon)){ 
+        $award = convertWordWrap($resultAwards['award']); 
+        if($k>=3){
+            echo "<br><br> $award | ";
+            }
+            else {
+            echo "$award | ";  
+            }
+            $k++; }?></span>__________________________________________________<br><br>_______________________________________________________________</h3><br>
 </div>
 </div>
 
@@ -123,3 +134,6 @@ if(isset($id)){
 </footer>
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

@@ -38,9 +38,9 @@ if(isset($id)){
 
 <div class="panel-admin">
     <?php if(isset($_COOKIE['cokkie'])) { ?>
-Добро пожаловать, <?= $_COOKIE['cokkie']?>. <a href="../../admin/Admin.php" class="open-admin" style="text-decoration: none" href>(Изменение данных)</a>
+Добро пожаловать, <?= $_COOKIE['cokkie']?>. <a href="../Admin.php" class="open-admin" style="text-decoration: none">(Изменение данных)</a>
 <?php } else {?>
-    Для сотрудников отдела кадров, <a href="enterAdmin.php" class="open-admin" style="text-decoration: none" href>войти</a>
+    Для сотрудников отдела кадров, <a href="../../enterAdmin.php" class="open-admin" style="text-decoration: none">войти</a>
     <?php }?>
 </div>
 
@@ -54,8 +54,8 @@ if(isset($id)){
 <form method="POST" action="addEducationReportWorker.php?id=<?=$id?>">
 
 <h2 style="text-align:center; margin-top:60px">Добавление образований сотрудника</h2><br>
-<h2 style="text-align:center;font-weight: normal;">Серия диплома: <input type="text" name="series">
-Номер диплома: <input type="text" name="number"></h2>
+<h2 style="text-align:center;font-weight: normal;">Серия диплома: <input type="number" name="series">
+Номер диплома: <input type="number" name="number"></h2>
 <h2 style="text-align:center;font-weight: normal;margin-top:10px">Специальность: <input type="text" name="spec"></h2>
 <h2 style="text-align:center;font-weight: normal;margin-top:10px">Год окончания: &nbsp;<input type="date" name="date_end"></h2>
 
@@ -67,7 +67,10 @@ if(isset($id)){
 <form method="POST" action="addAwardReportWorker.php?id=<?=$id?>">
 <h2 style="text-align:center; margin-top:20px">Добавление наград сотрудника</h2>
 <br>
-<h2 style="text-align:center;font-weight: normal;">Введите название награды: <input type="text" name="award"></h2>
+<h2 style="text-align:center;">Введите название награды: <input type="text" name="award"></h2><br>
+<h2 style="text-align:center;font-weight: normal;">Введите название документа: <input type="text" name="document_name"></h2><br>
+<h2 style="text-align:center;font-weight: normal;">Введите номер документа:&emsp;&nbsp; <input type="number" name="document_number"></h2><br>
+<h2 style="text-align:center;font-weight: normal;">Введите дату документа:&emsp;&emsp; <input type="date" name="document_date"></h2><br>
 <div style="text-align:center; margin-top:40px"><input class="button_add" type="submit"name="submit"value="Добавить награду"></div>
 </form>
 
@@ -101,10 +104,10 @@ if(isset($id)){
             обращайтесь к системному администратору
         </div>
         <nav class="menu_updates" >
-            <a href="../index.php" class="menu_updates_item" style="text-decoration: none">Главная страница</a>
-            <a href="../workers.php" class="menu_updates_item" style="text-decoration: none">Сотрудники</a>
-            <a href="../departments.php" class="menu_updates_item" style="text-decoration: none">Отделы</a>
-            <a href="../Reports/reports.php" class="menu_updates_item" style="text-decoration: none">Отчеты</a>     
+            <a href="../../index.php" class="menu_updates_item" style="text-decoration: none">Главная страница</a>
+            <a href="../../workers.php" class="menu_updates_item" style="text-decoration: none">Сотрудники</a>
+            <a href="../../departments.php" class="menu_updates_item" style="text-decoration: none">Отделы</a>
+            <a href="../../Reports/reports.php" class="menu_updates_item" style="text-decoration: none">Отчеты</a>     
         </nav>
    
       </div>
@@ -125,3 +128,6 @@ if(isset($id)){
 </footer>
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

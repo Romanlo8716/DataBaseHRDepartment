@@ -42,4 +42,7 @@ $middlename = $worker['middlename'];?>
 </div>
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>
 

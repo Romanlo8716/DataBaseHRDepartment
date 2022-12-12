@@ -106,3 +106,6 @@ include 'Connect/connect.php';
 
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

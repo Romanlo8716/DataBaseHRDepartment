@@ -1,8 +1,5 @@
 <?php
 include 'Connect/connect.php';
-$connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` where dismiss IS NULL OR dismiss = ''");
-$connectionWorkersDissmis = mysqli_query($link, "select * from `people_table` where dismiss = '1'");
-
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +10,7 @@ $connectionWorkersDissmis = mysqli_query($link, "select * from `people_table` wh
     <title>Сотрудники</title>
     <link rel="stylesheet" href="/Style/StyleWorkers.css"/>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript" src="live_search.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 
@@ -54,13 +51,14 @@ $connectionWorkersDissmis = mysqli_query($link, "select * from `people_table` wh
         <form method="POST">
             <br>
         <div class="field">
-        <label>Имя:</label> <input type="text" name="name" id="searchName"  /><p><br>
+        <label>Имя:</label> <input type="text" name="name"   /><p><br>
         </div >
         <div  class="field">
-        <label> Фамилия:</label> <input type="text" name="surname" id="searchSurname"  /><p><br>
+        <label> Фамилия:</label> <input type="text" name="surname"   /><p><br>
         </div >
         <div  class="field">
-        <label>Отчество:</label> <input type="text" name="middlename" id="searchMiddlename"  /><p><br>
+        <label>Отчество:</label> <input type="text" name="middlename"   /><p><br>
+        <div style="text-align:center; margin-top:40px"><input class="button-search" type="submit"name="submit"value="поиск"></div>
         </div >
      </form>
 </div>
@@ -69,7 +67,22 @@ $connectionWorkersDissmis = mysqli_query($link, "select * from `people_table` wh
 
 <div class="block-workers" id="display">
     <h1 style="text-align:center">Действующие сотрудники</h1>
+    
 <?php
+
+    if (empty($_POST["name"]) && empty($_POST["surname"]) && empty($_POST["middlename"])) {
+        $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` where dismiss IS NULL OR dismiss = ''");
+    }
+    else if(!empty($_POST["name"]) || !empty($_POST["surname"]) || !empty($_POST["middlename"])){
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
+        $middlename = $_POST["middlename"];
+
+        $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` where (name = '$name' or surname= '$surname' or middlename= '$middlename')  and  dismiss IS NULL OR dismiss = ''");
+    }
+  
+
+
 
     while($workers = mysqli_fetch_array($connectionWorkersNoDissmis))
     {
@@ -88,7 +101,7 @@ $connectionWorkersDissmis = mysqli_query($link, "select * from `people_table` wh
     
          <div class="block-worker" >
             <div class="image-worker"><?php if($workers["image"]== null){ echo"<br><br><br>No photo"; } else{?> <img class="photo_worker" src="data:image/jpeg;base64,<?=$show_img?>" alt=""> <?php }?></div>
-           <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["name"]?> <?=$workers["surname"]?> <?=$workers["middlename"]?> </div><br> 
+           <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["surname"]?> <?=$workers["name"]?> <?=$workers["middlename"]?> </div><br> 
            
           
            
@@ -133,6 +146,17 @@ $connectionWorkersDissmis = mysqli_query($link, "select * from `people_table` wh
     
    <?php
 
+if (empty($_POST["name"]) && empty($_POST["surname"]) && empty($_POST["middlename"])) {
+    $connectionWorkersDissmis = mysqli_query($link, "select * from `people_table` where dismiss = '1'");
+}
+else if(!empty($_POST["name"]) || !empty($_POST["surname"]) || !empty($_POST["middlename"])){
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $middlename = $_POST["middlename"];
+
+    $connectionWorkersDissmis = mysqli_query($link, "select * from `people_table` where (name = '$name' or surname= '$surname' or middlename= '$middlename')  and  dismiss = '1'");
+}
+
 while($workers = mysqli_fetch_array($connectionWorkersDissmis))
 {
     $id = $workers["id"];
@@ -150,7 +174,7 @@ while($workers = mysqli_fetch_array($connectionWorkersDissmis))
 
      <div class="block-worker" >
         <div class="image-worker"><?php if($workers["image"]== null){ echo"<br><br><br>No photo"; } else{?> <img class="photo_worker" src="data:image/jpeg;base64,<?=$show_img?>" alt=""> <?php }?></div>
-       <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["name"]?> <?=$workers["surname"]?> <?=$workers["middlename"]?> </div><br> 
+       <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["surname"]?> <?=$workers["name"]?> <?=$workers["middlename"]?> </div><br> 
        
       
        
@@ -168,6 +192,7 @@ while($workers = mysqli_fetch_array($connectionWorkersDissmis))
      <?php
 
 }
+mysqli_close($link);
 ?>
 </div>
 

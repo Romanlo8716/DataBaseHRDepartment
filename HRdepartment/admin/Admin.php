@@ -146,3 +146,6 @@ include '../Connect/connect.php';
 </footer>
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

@@ -8,13 +8,14 @@ if(isset($_GET["id"])){
     $id = $_GET["id"];
 }
 
-if(!empty($_POST["date_start"]) && !empty($_POST["date_end"]) && !empty($_POST["stats"])){
+if(!empty($_POST["date_start"]) && !empty($_POST["date_end"]) && !empty($_POST["stats"]) && !empty($_POST["footing"])){
 $date_start = $_POST["date_start"];
 $date_end = $_POST["date_end"];
 $stats = $_POST["stats"];
+$footing = $_POST["footing"];
 
 
-$result = mysqli_query($link, "CALL addStatsReportWorker('$id','$date_start','$date_end', '$stats')");
+$result = mysqli_query($link, "CALL addStatsReportWorker('$id','$date_start','$date_end', '$stats', '$footing')");
 
     
     
@@ -35,4 +36,7 @@ $result = mysqli_query($link, "CALL addStatsReportWorker('$id','$date_start','$d
 else {
 echo "Ошибка!!! Введены не все обязательные данные в поля!!! <br> (Вернитесь назад и заполните все ОБЯЗАТЕЛЬНЫЕ поля)";
 }
+
+mysqli_close($link);
+
 ?>

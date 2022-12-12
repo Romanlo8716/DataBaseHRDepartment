@@ -21,5 +21,8 @@ else
    <?php
 }
 
+mysqli_close($link);
+
 ?>
 <meta http-equiv="refresh" content="2;url=deleteAdminWorkers.php" />
+

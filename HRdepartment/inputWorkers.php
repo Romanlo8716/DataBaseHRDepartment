@@ -128,3 +128,6 @@ else if (isset($_POST['searchMiddlename']))
 
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

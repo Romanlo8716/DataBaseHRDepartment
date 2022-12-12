@@ -25,4 +25,15 @@ function numberEmployeesForDepartment($query){
     $count = $row['count'];
     return $count;
 }
+
+function checkTheLetter($text){
+    for ($i=0;$i<mb_strlen($text); $i++)
+    
+    if (is_numeric($text[$i])){
+        echo "Ошибка!!! Проверьте на правильность вводимых БУКВЕННЫХ данных";
+        exit();
+    }
+    
+    }
+
 ?>

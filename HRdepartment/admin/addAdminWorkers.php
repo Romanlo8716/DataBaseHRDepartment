@@ -79,10 +79,10 @@ function uploadFile(target) {
 <h3>Имя: &emsp;&emsp;&nbsp;<input type="text" name="name"/></h3><br>
 <h3 style="color:gray;">Отчество: <input type="text" name="middlename"/></h3><br>
 <h3>Пол: <select name="gender"> <option value="0">Выберите пол</option> <option value="1">М</option> <option value="2">Ж</option>  </select> &emsp;&emsp;&nbsp;&nbsp; Дата рождения: <input type="date" name="birthday"></h3><br>
-<h3>Серия паспорта:<input type="text" size= "5" onkeypress='validate(event)' name="series_pas"/> Номер паспорта: <input type="text" size= "10" onkeypress='validate(event)' name="number_pas"/></h3><br>
+<h3>Серия паспорта:<input type="number"  name="series_pas"/> Номер паспорта: <input type="number" name="number_pas"/></h3><br>
 </div>
 <br><br>
-<h3 class="adress_block">Место прописки: Субъект: <input type="text" size="17" name="subject"> &emsp;&nbsp;&nbsp; Город: <input type="text" size= "19" name="city">  <br><br><div style="margin-left: 150px;">Улица: <input type="text" size="16px" name="street"> Дом: <input type="text" size="5" name="house"> Квартира: <input type="text" size="5" name="flat"> </div> </h3>
+<h3 class="adress_block">Место прописки: Субъект: <input type="text" size="17" name="subject"> &emsp;&nbsp;&nbsp; Город: <input type="text" size= "19" name="city">  <br><br><div style="margin-left: 150px;">Улица: <input type="text" size="16px" name="street"> Дом: <input type="number"  name="house"> Квартира: <input type="number" name="flat"> </div> </h3>
 
 
 </div>
@@ -137,3 +137,6 @@ function uploadFile(target) {
 
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

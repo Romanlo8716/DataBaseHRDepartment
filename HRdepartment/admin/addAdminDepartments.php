@@ -110,3 +110,6 @@ $allAdress =  mysqli_query($link, "select * from department_adress");
 
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

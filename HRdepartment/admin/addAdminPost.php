@@ -50,9 +50,9 @@ $postCon =  mysqli_query($link, "select * from post");
 <div class="passport_block"> 
 <form action="addPost.php" method="POST" enctype='multipart/form-data'>
     <div style="text-align:center; margin-top:100px">
-<h2>Наименование должности:&nbsp; &nbsp;&emsp;<input type="text" name="title" size="25"><h2><br>
+<h2>Наименование должности: <input type="text" name="title" size="15"><h2><br>
 
-<h2>Зарплата для данной должности: <input type="text" name="salary"><h2>
+<h2>Зарплата для данной должности: <input type="number" name="salary"><h2>
 </div>
 </div>
 <div style="text-align:center">Обязательно введите все поля! <br> *(Все необязательные поля выделены СЕРЫМ цветом).<div>
@@ -106,3 +106,6 @@ $postCon =  mysqli_query($link, "select * from post");
 
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

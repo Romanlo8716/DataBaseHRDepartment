@@ -1,6 +1,6 @@
 <?php
 include '../Connect/connect.php';
-$connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` where dismiss IS NULL OR dismiss = ''");
+
 
 ?> 
 <!DOCTYPE html>
@@ -60,6 +60,7 @@ $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` 
         </div >
         <div  class="field">
         <label>Отчество:</label> <input type="text" name="middlename" id="searchMiddlename"  /><p><br>
+        <div style="text-align:center; margin-top:40px"><input class="button-search" type="submit"name="submit"value="поиск"></div>
         </div >
      </form>
 </div>
@@ -69,6 +70,17 @@ $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` 
 <div class="block-workers" id="display">
     <h1 style="text-align:center"> Выберите сотрудника для изменения </h1>
 <?php
+
+if (empty($_POST["name"]) && empty($_POST["surname"]) && empty($_POST["middlename"])) {
+    $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` where dismiss IS NULL OR dismiss = ''");
+}
+else if(!empty($_POST["name"]) || !empty($_POST["surname"]) || !empty($_POST["middlename"])){
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $middlename = $_POST["middlename"];
+
+    $connectionWorkersNoDissmis = mysqli_query($link, "select * from `people_table` where (name = '$name' or surname= '$surname' or middlename= '$middlename')  and  dismiss IS NULL OR dismiss = ''");
+}
 
 while($workers = mysqli_fetch_array($connectionWorkersNoDissmis))
 {
@@ -87,7 +99,7 @@ while($workers = mysqli_fetch_array($connectionWorkersNoDissmis))
 
      <div class="block-worker" >
         <div class="image-worker"><?php if($workers["image"]== null){ echo"<br><br><br>No photo"; } else{?> <img class="photo_worker" src="data:image/jpeg;base64,<?=$show_img?>" alt=""> <?php }?></div>
-       <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["name"]?> <?=$workers["surname"]?> <?=$workers["middlename"]?> </div><br> 
+       <div class="fio"> <h3>Фамилия Имя Отчество</h3> <?=$workers["surname"]?> <?=$workers["name"]?> <?=$workers["middlename"]?> </div><br> 
        
       
        
@@ -167,3 +179,6 @@ while($workers = mysqli_fetch_array($connectionWorkersNoDissmis))
 
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

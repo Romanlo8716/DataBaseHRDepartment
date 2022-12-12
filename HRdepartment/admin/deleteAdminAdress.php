@@ -113,3 +113,6 @@ $adressCon = mysqli_query($link, "select * from department_adress");
 </footer>
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>
